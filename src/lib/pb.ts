@@ -28,7 +28,7 @@ export function fileUrl(
   filename: string,
   thumb?: string,
 ): string {
-  const base = typeof window === "undefined" ? PUBLIC_PB_URL : pbUrl;
+  const base = getPb().baseURL;
   const q = thumb ? `?thumb=${thumb}` : "";
   return `${base}/api/files/${record.collectionId}/${record.id}/${encodeURIComponent(filename)}${q}`;
 }

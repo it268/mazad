@@ -1,0 +1,844 @@
+<template>
+<style>
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323-0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323-0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323-0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323-0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ——— 07-admin · frame styles (Blue Professional tokens) ———
+   NOTE: the staged admin screenshots are a failed capture (blank error page),
+   so the two admin screens are recreated in HTML inside the browser card,
+   styled after the real site's captured design (navy #232867 / orange #e96b0b
+   / cream #f6f3ec — sampled from the real page screenshots). Frame chrome
+   around the card keeps the Blue Professional tokens. */
+
+#root {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Alexandria', sans-serif;
+  color: #191510;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root, #root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.f07-admin-clip {
+  position: absolute;
+  inset: 0;
+}
+
+/* full-bleed cream ground — dedicated clip, never a background on #root */
+.f07-admin-bg {
+  background: #F6F3EC;
+}
+
+/* scene container = the frame ground container for all cqw/cqh units */
+.f07-admin-scene {
+  container-type: size;
+  overflow: hidden;
+}
+
+/* ——— browser card — final layout: card LEFT (~60% width), cream margin
+   column RIGHT reserved for the RTL captions. Bottom edge ~831px of 1080,
+   inside the 83% caption keep-out. ——— */
+.f07-admin-cardzone {
+  position: absolute;
+  left: 5cqw;
+  top: 11.1cqh;
+  width: 59.8cqw;
+}
+
+.f07-admin-card {
+  background: #F6F3EC;
+  border: 1.5px solid rgba(14, 95, 130, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.f07-admin-chrome {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 17px;
+  background: rgba(14, 95, 130, 0.08);
+  border-bottom: 1.5px solid rgba(14, 95, 130, 0.2);
+}
+
+.f07-admin-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(14, 95, 130, 0.25);
+  flex: none;
+}
+
+.f07-admin-url {
+  margin-inline-start: 15px;
+  padding: 4px 23px;
+  border: 1px solid rgba(14, 95, 130, 0.2);
+  border-radius: 100px;
+  background: #F6F3EC;
+  color: #4C463D;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* card window: persistent site chrome (strip + admin bar) never fades;
+   only the content viewport cross-dissolves — chrome persists across the
+   swap, per the stepwise-flow mechanic */
+.f07-admin-window {
+  position: relative;
+  height: 668px;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+  background: #f2eee3;
+}
+
+/* ——— recreated site chrome (real site design, sampled from captures) ——— */
+.f07-strip {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #1d4a6e 0%, #232867 58%, #2a3374 100%);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 10.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.f07-bar {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  background: #fdfbf6;
+  border-bottom: 1px solid #e8e2d4;
+}
+
+.f07-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #232867;
+  white-space: nowrap;
+}
+
+.f07-brandmark {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e96b0b;
+  flex: none;
+}
+
+.f07-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-inline-start: 34px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #8b8577;
+  white-space: nowrap;
+}
+
+/* active item starts on the dashboard, hands over at the swap beat */
+#f07-nav-dash {
+  color: #e96b0b;
+  font-weight: 700;
+}
+
+.f07-admin {
+  margin-inline-start: auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #6f695c;
+  white-space: nowrap;
+}
+
+.f07-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #232867;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+/* ——— content viewport + camera push wrapper ——— */
+.f07-viewport {
+  position: relative;
+  height: 584px;
+  overflow: hidden;
+}
+
+.f07-push {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.f07-screen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.f07-screenhead {
+  display: flex;
+  align-items: flex-start;
+}
+
+.f07-screentitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #232867;
+}
+
+.f07-screensub {
+  margin-top: 2px;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #8b8577;
+}
+
+.f07-headbadge {
+  margin-inline-start: 14px;
+  margin-top: 5px;
+  padding: 4px 13px;
+  border-radius: 100px;
+  background: rgba(233, 107, 11, 0.12);
+  color: #c25a08;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.f07-headpill {
+  margin-inline-start: auto;
+  margin-top: 5px;
+  padding: 4px 15px;
+  border: 1px solid #ddd6c8;
+  border-radius: 100px;
+  background: #ffffff;
+  color: #6f695c;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* ——— screen A: dashboard — 6 stat cards + latest requests ——— */
+.f07-stats {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.f07-stat {
+  background: #ffffff;
+  border: 1px solid #e8e2d4;
+  border-radius: 10px;
+  padding: 13px 14px 12px;
+}
+
+.f07-stat-label {
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #8b8577;
+  white-space: nowrap;
+}
+
+.f07-stat-value {
+  margin-top: 5px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #232867;
+}
+
+.f07-stat-hot .f07-stat-value {
+  color: #e96b0b;
+}
+
+.f07-panel {
+  margin-top: 18px;
+  flex: 1;
+  min-height: 0;
+  background: #ffffff;
+  border: 1px solid #e8e2d4;
+  border-radius: 12px;
+  padding: 14px 20px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.f07-panelhead {
+  display: flex;
+  align-items: center;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #f0ebdf;
+}
+
+.f07-paneltitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #232867;
+}
+
+.f07-panellink {
+  margin-inline-start: auto;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #e96b0b;
+}
+
+.f07-minirow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px solid #f4f0e6;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+.f07-minirow:last-child {
+  border-bottom: none;
+}
+
+.f07-mini-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #232867;
+  white-space: nowrap;
+}
+
+.f07-mini-seller {
+  color: #8b8577;
+  white-space: nowrap;
+}
+
+.f07-mini-price {
+  margin-inline-start: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: #232867;
+  white-space: nowrap;
+}
+
+.f07-mini-time {
+  color: #a39c8d;
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
+.f07-minipill {
+  flex: none;
+  width: 118px;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 100px;
+  background: rgba(233, 107, 11, 0.12);
+  color: #c25a08;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.f07-minipill-cool {
+  background: rgba(35, 40, 103, 0.08);
+  color: #232867;
+}
+
+/* site footer strip (real site copy) — pinned to the viewport bottom so both
+   screens hold it at the same y across the cross-dissolve */
+.f07-sitefoot {
+  margin-top: auto;
+  padding-top: 9px;
+  border-top: 1px solid #e8e2d4;
+  text-align: center;
+  font-size: 9.5px;
+  font-weight: 400;
+  color: #a39c8d;
+  white-space: nowrap;
+}
+
+/* ——— screen B: sale-requests review table ——— */
+.f07-table {
+  margin-top: 16px;
+  background: #ffffff;
+  border: 1px solid #e8e2d4;
+  border-radius: 12px;
+  padding: 6px 20px 8px;
+}
+
+.f07-tr {
+  display: grid;
+  grid-template-columns: 21% 17% 15% 15% 15% 17%;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f4f0e6;
+}
+
+.f07-tr-head {
+  padding: 9px 0 7px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #a39c8d;
+}
+
+.f07-tr:last-child {
+  border-bottom: none;
+}
+
+.f07-cell-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #232867;
+  line-height: 1.35;
+}
+
+.f07-cell-breed {
+  margin-top: 1px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #a39c8d;
+}
+
+.f07-cell {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #6f695c;
+  white-space: nowrap;
+}
+
+.f07-cell-price {
+  font-size: 12px;
+  font-weight: 700;
+  color: #232867;
+}
+
+.f07-cell-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.f07-btn {
+  padding: 5px 15px;
+  border-radius: 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.f07-btn-ok {
+  background: #e96b0b;
+  color: #ffffff;
+}
+
+.f07-btn-no {
+  border: 1px solid #ddd6c8;
+  background: #ffffff;
+  color: #8b8577;
+}
+
+/* ——— caption column — anchored RIGHT (RTL margin captions) ——— */
+.f07-admin-col {
+  position: absolute;
+  right: 5cqw;
+  top: 23.1cqh;
+  width: 26cqw;
+  text-align: right;
+}
+
+.f07-admin-rule {
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: #0E5F82;
+}
+
+/* Arabic eyebrow: cobalt + weight, no letter-spacing (cursive script must stay joined) */
+.f07-admin-eyebrow {
+  margin-top: 14px;
+  font-size: 1.46cqw;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #0E5F82;
+}
+
+.f07-admin-h2 {
+  margin-top: 8px;
+  font-size: 2.6cqw;
+  font-weight: 600;
+  line-height: 1.22;
+  color: #191510;
+}
+
+/* tinted chips — pill chrome (4% fill / 20% border / 100px radius, no shadow) */
+.f07-admin-chips {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.f07-admin-chip {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 21px;
+  background: rgba(14, 95, 130, 0.04);
+  border: 1.5px solid rgba(14, 95, 130, 0.2);
+  border-radius: 100px;
+  color: #0E5F82;
+  font-size: 1.15cqw;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.f07-admin-chipdot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #0E5F82;
+  flex: none;
+}
+</style>
+
+<div id="root" dir="rtl" lang="ar" data-composition-id="07-admin" data-start="0" data-duration="6.5" data-width="1920" data-height="1080">
+  <div class="clip f07-admin-clip f07-admin-bg" data-start="0" data-duration="6.5" data-track-index="0"></div>
+
+  <div class="clip f07-admin-clip f07-admin-scene" data-start="0" data-duration="6.5" data-track-index="1">
+
+    <!-- browser card — the persistent hero; its screens swap in place -->
+    <div class="f07-admin-cardzone">
+      <div id="f07-admin-card" class="f07-admin-card">
+        <div class="f07-admin-chrome">
+          <span class="f07-admin-dot"></span>
+          <span class="f07-admin-dot"></span>
+          <span class="f07-admin-dot"></span>
+          <span class="f07-admin-url">مزاد الفروسية · لوحة الإدارة</span>
+        </div>
+        <div class="f07-admin-window">
+
+          <!-- persistent site chrome (never fades — chrome persists across the swap) -->
+          <div class="f07-strip">منصة مزادات وبيع خيل العرب الأصيلة — الجودة قبل الكمية والثقة قبل كل صفقة</div>
+          <div class="f07-bar">
+            <div class="f07-brand"><span class="f07-brandmark"></span>مزاد الفروسية</div>
+            <div class="f07-nav">
+              <span id="f07-nav-dash">لوحة التحكم</span>
+              <span>الخيول</span>
+              <span>المزادات</span>
+              <span id="f07-nav-req">طلبات البيع</span>
+              <span>الأعضاء</span>
+            </div>
+            <div class="f07-admin"><span class="f07-avatar">م</span>مدير المنصة</div>
+          </div>
+
+          <!-- content viewport: the two screens cross-dissolve in place -->
+          <div class="f07-viewport">
+            <div id="f07-admin-push" class="f07-push" data-layout-allow-overflow>
+
+              <!-- screen A — real admin dashboard capture -->
+              <img id="f07-screen-a" class="f07-screen" src="assets/admin-dashboard.png" alt="" />
+              <!-- screen B — real sale-requests capture (cross-dissolve swap) -->
+              <img id="f07-screen-b" class="f07-screen" src="assets/admin-requests.png" alt="" />
+            
+
+              <!-- screen B — sale-requests review table with action buttons -->
+              <div id="f07-screen-b" class="f07-screen">
+                <div class="f07-screenhead">
+                  <div>
+                    <div class="f07-screentitle">طلبات بيع الخيول</div>
+                    <div class="f07-screensub">مراجعة طلبات البائعين قبل النشر</div>
+                  </div>
+                  <div class="f07-headbadge">3 بانتظار المراجعة</div>
+                  <div class="f07-headpill">تصفية</div>
+                </div>
+                <div class="f07-table">
+                  <div class="f07-tr f07-tr-head">
+                    <span>الحصان</span><span>البائع</span><span>السعر المطلوب</span><span>تاريخ الطلب</span><span>الحالة</span><span>الإجراءات</span>
+                  </div>
+                  <div class="f07-tr">
+                    <div><div class="f07-cell-name">صهيل الذهبي</div><div class="f07-cell-breed">خيل عربي أصيل</div></div>
+                    <span class="f07-cell">مؤسسة الخيل الذهبية</span>
+                    <span class="f07-cell f07-cell-price">45,000 ر.س</span>
+                    <span class="f07-cell">12 فبراير 2026</span>
+                    <span class="f07-minipill">بانتظار المراجعة</span>
+                    <div class="f07-cell-actions"><span class="f07-btn f07-btn-ok">قبول</span><span class="f07-btn f07-btn-no">رفض</span></div>
+                  </div>
+                  <div class="f07-tr">
+                    <div><div class="f07-cell-name">برق الليل</div><div class="f07-cell-breed">خيل عربي أصيل</div></div>
+                    <span class="f07-cell">وراث بن صقر</span>
+                    <span class="f07-cell f07-cell-price">60,000 ر.س</span>
+                    <span class="f07-cell">11 فبراير 2026</span>
+                    <span class="f07-minipill">بانتظار المراجعة</span>
+                    <div class="f07-cell-actions"><span class="f07-btn f07-btn-ok">قبول</span><span class="f07-btn f07-btn-no">رفض</span></div>
+                  </div>
+                  <div class="f07-tr">
+                    <div><div class="f07-cell-name">غزالة</div><div class="f07-cell-breed">خيل عربي أصيل</div></div>
+                    <span class="f07-cell">ناد الخيل العربي</span>
+                    <span class="f07-cell f07-cell-price">38,000 ر.س</span>
+                    <span class="f07-cell">10 فبراير 2026</span>
+                    <span class="f07-minipill f07-minipill-cool">قيد الفحص</span>
+                    <div class="f07-cell-actions"><span class="f07-btn f07-btn-no">عرض</span></div>
+                  </div>
+                  <div class="f07-tr">
+                    <div><div class="f07-cell-name">ذيب الشمال</div><div class="f07-cell-breed">خيل عربي أصيل</div></div>
+                    <span class="f07-cell">عبدالله المطيري</span>
+                    <span class="f07-cell f07-cell-price">52,000 ر.س</span>
+                    <span class="f07-cell">9 فبراير 2026</span>
+                    <span class="f07-minipill">بانتظار المراجعة</span>
+                    <div class="f07-cell-actions"><span class="f07-btn f07-btn-ok">قبول</span><span class="f07-btn f07-btn-no">رفض</span></div>
+                  </div>
+                </div>
+                <div class="f07-sitefoot">© 2026 مزاد الفروسية — جميع الحقوق محفوظة</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- screen-space margin captions (RTL, right) -->
+    <div class="f07-admin-col">
+      <div id="f07-admin-rule" class="f07-admin-rule"></div>
+      <div id="f07-admin-eyebrow" class="f07-admin-eyebrow">لإدارة المنصة</div>
+      <h2 id="f07-admin-h2" class="f07-admin-h2">لوحة تحكم كاملة</h2>
+      <div class="f07-admin-chips">
+        <div id="f07-chip-1" class="f07-admin-chip"><span class="f07-admin-chipdot"></span>طلبات البيع للمراجعة</div>
+        <div id="f07-chip-2" class="f07-admin-chip"><span class="f07-admin-chipdot"></span>مزادات وصفقات وإدارة عملاء</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+
+  /* initial states (deterministic, set at build): screen B hidden under
+     screen A; the camera push starts at rest */
+  gsap.set("#f07-screen-b", { autoAlpha: 0 });
+  gsap.set("#f07-admin-push", { transformOrigin: "50% 24%" });
+
+  /* Scene 1 (0.0–1.6s) — surface establish: the browser card slides up and
+     settles (ease-out, like a window lifted into place); the dashboard screen
+     is already live inside it. Eyebrow + h2 reveal on the right column. */
+  tl.fromTo("#f07-admin-card",
+    { y: 34, scale: 0.976, autoAlpha: 0, transformOrigin: "50% 100%" },
+    { y: 0, scale: 1, autoAlpha: 1, duration: 0.75, ease: "power3.out" }, 0);
+  tl.fromTo("#f07-admin-rule",
+    { scaleX: 0 },
+    { scaleX: 1, transformOrigin: "100% 50%", duration: 0.5, ease: "power2.out" }, 0.42);
+  tl.fromTo("#f07-admin-eyebrow",
+    { y: 20, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.55, ease: "power2.out" }, 0.55);
+  tl.fromTo("#f07-admin-h2",
+    { y: 26, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.65, ease: "power2.out" }, 0.7);
+
+  /* the showcase camera: ONE slow push toward the stat-cards row, running
+     underneath the whole shot and easing to rest before the hold (the push
+     lives on this inner wrapper — never on the timed clip element) */
+  tl.fromTo("#f07-admin-push",
+    { scale: 1 },
+    { scale: 1.07, duration: 3.8, ease: "power2.out" }, 0.5);
+
+  /* Scene 2 (1.6–3.0s) — THE signature move: in-place cross-dissolve of the
+     card's screen (same card geometry, chrome persists); the first chip pops
+     on the swap beat, and the admin bar's active item hands over. */
+  tl.to("#f07-screen-a", { autoAlpha: 0, duration: 0.7, ease: "power2.inOut" }, 1.75);
+  tl.to("#f07-screen-b", { autoAlpha: 1, duration: 0.7, ease: "power2.inOut" }, 1.75);
+  tl.to("#f07-nav-dash", { color: "#8b8577", fontWeight: 500, duration: 0.35, ease: "none" }, 1.78);
+  tl.to("#f07-nav-req", { color: "#e96b0b", fontWeight: 700, duration: 0.35, ease: "none" }, 1.78);
+  tl.fromTo("#f07-chip-1",
+    { scale: 0.5, autoAlpha: 0, transformOrigin: "100% 50%" },
+    { scale: 1, autoAlpha: 1, duration: 0.55, ease: "back.out(1.7)" }, 1.92);
+
+  /* Scene 3 (3.0–4.6s) — second chip lands a beat later; the push eases to
+     rest. The card keeps a barely-there sine idle float (finite, no repeat). */
+  tl.fromTo("#f07-chip-2",
+    { scale: 0.5, autoAlpha: 0, transformOrigin: "100% 50%" },
+    { scale: 1, autoAlpha: 1, duration: 0.55, ease: "back.out(1.7)" }, 3.25);
+  tl.to("#f07-admin-card", {
+    keyframes: [
+      { y: 5, duration: 1.7, ease: "sine.inOut" },
+      { y: -4, duration: 1.7, ease: "sine.inOut" },
+      { y: 2, duration: 1.5, ease: "sine.inOut" }
+    ]
+  }, 1.2);
+
+  /* Scene 4 (4.6–6.0s) — hold everything still; the back office reads. No
+     exits: the frame unmounts under the root transition. The no-op tail pins
+     the timeline duration at exactly 6.0s. */
+  tl.to({ _: 0 }, { _: 1, duration: 0.001, ease: "none" }, 5.999);
+
+  window.__timelines["07-admin"] = tl;
+})();
+</script>
+</template>

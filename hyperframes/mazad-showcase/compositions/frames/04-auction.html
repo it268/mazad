@@ -1,0 +1,466 @@
+<template>
+<style>
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323-0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323-0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323-0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323-0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ——— 04-auction · frame styles (Blue Professional tokens) ——— */
+
+#root {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Alexandria', sans-serif;
+  color: #191510;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root, #root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.f04-auction-clip {
+  position: absolute;
+  inset: 0;
+}
+
+/* full-bleed cream ground — dedicated clip, never a background on #root */
+.f04-auction-bg {
+  background: #F6F3EC;
+}
+
+/* scene container = the frame ground container for all cqw units;
+   overflow hidden crops the magnified world during the zoom-out */
+.f04-auction-scene {
+  container-type: size;
+  overflow: hidden;
+}
+
+/* ——— the world (zoom-out-workspace-reveal): the WHOLE room authored at final
+   layout from frame 0; the camera (scale + translate) lives on this inner
+   wrapper only — never on the timed clip element — with transform-origin 0 0
+   so the viewport-change math (T = screenCenter − focal × S) holds exactly. ——— */
+.f04-auction-world {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+/* browser card — final wide layout: card LEFT (~72.5% width), cream margin
+   column RIGHT reserved for the RTL captions. Bottom edge ~81.6% of frame,
+   inside the 83% caption keep-out. */
+.f04-auction-cardzone {
+  position: absolute;
+  left: 2.5cqw;
+  top: 5.2cqh;
+  width: 72.5cqw;
+}
+
+.f04-auction-card {
+  background: #F6F3EC;
+  border: 1.5px solid rgba(14, 95, 130, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.f04-auction-chrome {
+  display: flex;
+  align-items: center;
+  height: 2.1cqw;
+  padding: 0 0.9cqw;
+  background: rgba(14, 95, 130, 0.08);
+  border-bottom: 1.5px solid rgba(14, 95, 130, 0.2);
+}
+
+.f04-auction-dot {
+  width: 0.52cqw;
+  height: 0.52cqw;
+  border-radius: 50%;
+  background: rgba(14, 95, 130, 0.25);
+  flex: none;
+}
+
+.f04-auction-url {
+  margin-inline-start: 0.8cqw;
+  padding: 0.22cqw 1.2cqw;
+  border: 1px solid rgba(14, 95, 130, 0.2);
+  border-radius: 100px;
+  background: #F6F3EC;
+  color: #4C463D;
+  font-size: 0.72cqw;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.f04-auction-window {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+
+.f04-auction-shot {
+  position: absolute;
+  inset: 0;
+}
+
+.f04-auction-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* teal highlight ring — WORLD-SPACE overlay so it stays glued to the
+   165,000 ر.س. figure while the camera moves. Measured on the asset:
+   price figure sits at native (648–895, 243–293) of the 1920×1080
+   screenshot; the screenshot renders at scale 0.72344 from stage
+   (49.5, 98) → ring box stage (498, 269.5) 217×51. */
+.f04-auction-ring {
+  position: absolute;
+  left: 498px;
+  top: 269.5px;
+  width: 217px;
+  height: 51px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* caption column — anchored RIGHT (RTL margin captions) */
+.f04-auction-col {
+  position: absolute;
+  right: 2.5cqw;
+  top: 23.1cqh;
+  width: 21cqw;
+  text-align: right;
+}
+
+.f04-auction-rule {
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: #0E5F82;
+}
+
+/* Arabic eyebrow: cobalt + weight, no letter-spacing (cursive script must stay joined) */
+.f04-auction-eyebrow {
+  margin-top: 14px;
+  font-size: 1.46cqw;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #0E5F82;
+}
+
+.f04-auction-h2 {
+  margin-top: 8px;
+  font-size: 2.6cqw;
+  font-weight: 600;
+  line-height: 1.22;
+  color: #191510;
+}
+
+/* payoff caption card — tinted card (4% fill / 20% border / 14px radius,
+   no shadow), bottom-right of the frame, inside the keep-out */
+.f04-auction-payoff {
+  position: absolute;
+  right: 2.5cqw;
+  top: 51.9cqh;
+  width: 21cqw;
+  background: rgba(14, 95, 130, 0.04);
+  border: 1.5px solid rgba(14, 95, 130, 0.2);
+  border-radius: 14px;
+  padding: 1.25cqw 1.45cqw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.73cqw;
+}
+
+.f04-auction-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7cqw;
+  font-size: 1.41cqw;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #4C463D;
+}
+
+.f04-auction-check {
+  flex: none;
+}
+</style>
+
+<div id="root" dir="rtl" lang="ar" data-composition-id="04-auction" data-start="0" data-duration="8.5" data-width="1920" data-height="1080">
+  <div class="clip f04-auction-clip f04-auction-bg" data-start="0" data-duration="8.5" data-track-index="0"></div>
+
+  <div class="clip f04-auction-clip f04-auction-scene" data-start="0" data-duration="8.5" data-track-index="1">
+
+    <!-- the one static world: whole auction room at final layout from frame 0 -->
+    <div id="f04-auction-world" class="f04-auction-world" data-layout-allow-overflow>
+      <div class="f04-auction-cardzone">
+        <div class="f04-auction-card">
+          <div class="f04-auction-chrome">
+            <span class="f04-auction-dot"></span>
+            <span class="f04-auction-dot"></span>
+            <span class="f04-auction-dot"></span>
+            <span class="f04-auction-url">مزاد الفروسية · غرفة المزاد</span>
+          </div>
+          <div class="f04-auction-window">
+            <div class="f04-auction-shot">
+              <img src="assets/auction-room.png" alt="غرفة المزاد المباشر" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- world-space ring around the top-bid figure (draws on, eases away — once) -->
+      <svg id="f04-auction-ring" class="f04-auction-ring" viewBox="0 0 217 51" fill="none" aria-hidden="true">
+        <ellipse id="f04-auction-ring-ellipse" cx="108.5" cy="25.5" rx="104" ry="21.5" pathLength="100"
+          stroke="#0E5F82" stroke-width="4.5" stroke-linecap="round"
+          stroke-dasharray="100" stroke-dashoffset="100" />
+      </svg>
+    </div>
+
+    <!-- screen-space margin captions (RTL, right) -->
+    <div class="f04-auction-col">
+      <div id="f04-auction-rule" class="f04-auction-rule"></div>
+      <div id="f04-auction-eyebrow" class="f04-auction-eyebrow">المزاد المباشر</div>
+      <h2 id="f04-auction-h2" class="f04-auction-h2">زايد بالوقت الحقيقي</h2>
+    </div>
+
+    <!-- payoff caption card (bottom-right, RTL) -->
+    <div id="f04-auction-payoff" class="f04-auction-payoff">
+      <div id="f04-auction-row1" class="f04-auction-row">
+        <svg class="f04-auction-check" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10.75" fill="rgba(14,95,130,0.08)" stroke="rgba(14,95,130,0.35)" stroke-width="1.5"/>
+          <path id="f04-auction-check1" d="M7.4 12.5 L10.7 15.7 L16.6 9.3" pathLength="100" stroke="#0E5F82" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="100" stroke-dashoffset="100"/>
+        </svg>
+        عدّاد تنازلي حي
+      </div>
+      <div id="f04-auction-row2" class="f04-auction-row">
+        <svg class="f04-auction-check" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10.75" fill="rgba(14,95,130,0.08)" stroke="rgba(14,95,130,0.35)" stroke-width="1.5"/>
+          <path id="f04-auction-check2" d="M7.4 12.5 L10.7 15.7 L16.6 9.3" pathLength="100" stroke="#0E5F82" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="100" stroke-dashoffset="100"/>
+        </svg>
+        سجل مزايدات لحظي
+      </div>
+      <div id="f04-auction-row3" class="f04-auction-row">
+        <svg class="f04-auction-check" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10.75" fill="rgba(14,95,130,0.08)" stroke="rgba(14,95,130,0.35)" stroke-width="1.5"/>
+          <path id="f04-auction-check3" d="M7.4 12.5 L10.7 15.7 L16.6 9.3" pathLength="100" stroke="#0E5F82" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="100" stroke-dashoffset="100"/>
+        </svg>
+        أعلى مزايدة تتصدر
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+
+  /* Camera math (viewport-change, one .world wrapper, transform-origin 0 0):
+     the screenshot renders at 0.72344× from stage (49.5, 98). Open framing is
+     tuned to the measured asset so the navy bid card top (countdown chip
+     "00:21:33" + "أعلى مزايدة حالياً 165,000 ر.س.") fills the frame with the
+     page nav excluded — focal native (660, 352) → stage (527, 352.6),
+     S0 = 3.0 → T = (960,540) − focal × 3 = (−620.9, −518). The camera's ONLY
+     scale motion is the single outward pull; nothing after the lock. */
+  gsap.set("#f04-auction-world", { scale: 3, x: -620.9, y: -518, transformOrigin: "0 0" });
+
+  /* Scene 1 (0.0–2.0s) — full-bleed tight crop on the navy bid card top; camera
+     holds while the micro-action plays: the teal ring draws around the 165,000
+     figure, then eases away expanding. One pulse, no repeat. */
+  tl.fromTo("#f04-auction-ring-ellipse",
+    { strokeDashoffset: 100 },
+    { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, 0.4);
+  tl.fromTo("#f04-auction-ring-ellipse",
+    { scale: 1, autoAlpha: 1, transformOrigin: "50% 50%" },
+    { scale: 1.16, autoAlpha: 0, duration: 0.7, ease: "power1.out" }, 1.25);
+
+  /* Scene 2 (2.0–5.2s) — THE signature move: ONE continuous decelerating
+     zoom-out (3.0× → 1.0×, shared power3.out) reveals the whole room inside the
+     browser card — bid feed rows and horse panel resolve as the crop widens.
+     No cuts, no second zoom, camera static after. */
+  tl.fromTo("#f04-auction-world",
+    { scale: 3, x: -620.9, y: -518 },
+    { scale: 1, x: 0, y: 0, duration: 3.2, ease: "power3.out" }, 2.0);
+
+  /* margin captions fade up on the right as the zoom passes its midpoint */
+  tl.fromTo("#f04-auction-rule",
+    { scaleX: 0 },
+    { scaleX: 1, transformOrigin: "100% 50%", duration: 0.5, ease: "power2.out" }, 3.5);
+  tl.fromTo("#f04-auction-eyebrow",
+    { y: 22, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.6, ease: "power2.out" }, 3.62);
+  tl.fromTo("#f04-auction-h2",
+    { y: 30, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.7, ease: "power2.out" }, 3.8);
+
+  /* Scene 3 (5.2–6.4s) — zoom locked at 1.0×; the tinted payoff card slides up
+     bottom-right (RTL) and its three check rows stagger 0.3s apart, each check
+     glyph drawing as its row lands. */
+  tl.fromTo("#f04-auction-payoff",
+    { y: 28, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.55, ease: "power3.out" }, 5.25);
+  tl.fromTo("#f04-auction-row1",
+    { y: 14, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.4, ease: "power2.out" }, 5.4);
+  tl.fromTo("#f04-auction-check1",
+    { strokeDashoffset: 100 },
+    { strokeDashoffset: 0, duration: 0.35, ease: "power1.inOut" }, 5.4);
+  tl.fromTo("#f04-auction-row2",
+    { y: 14, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.4, ease: "power2.out" }, 5.7);
+  tl.fromTo("#f04-auction-check2",
+    { strokeDashoffset: 100 },
+    { strokeDashoffset: 0, duration: 0.35, ease: "power1.inOut" }, 5.7);
+  tl.fromTo("#f04-auction-row3",
+    { y: 14, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.4, ease: "power2.out" }, 6.0);
+  tl.fromTo("#f04-auction-check3",
+    { strokeDashoffset: 100 },
+    { strokeDashoffset: 0, duration: 0.35, ease: "power1.inOut" }, 6.0);
+
+  /* Scene 4 (6.4–8.0s) — hold everything still; the room reads. No exits: the
+     frame unmounts under the root transition. The no-op tail pins the timeline
+     duration at exactly 8.0s. */
+  tl.to({ _: 0 }, { _: 1, duration: 0.001, ease: "none" }, 7.999);
+
+  window.__timelines["04-auction"] = tl;
+})();
+</script>
+</template>

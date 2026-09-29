@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
     const [auctions, sales, counts] = await Promise.all([
       fetchAuctions({ status: ["live", "scheduled"], perPage: 6 }),
       fetchSaleListings({ perPage: 6 }),
-      fetchCounts().catch(() => ({ soldHorses: 0, auctions: 0, clients: 0 })),
+      fetchCounts(),
     ]);
     return { auctions, sales, counts };
   },

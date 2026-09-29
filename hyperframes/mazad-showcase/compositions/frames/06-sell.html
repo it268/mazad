@@ -1,0 +1,590 @@
+<template>
+<style>
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ——— 06-sell · frame styles (Blue Professional tokens) ——— */
+
+#root {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Alexandria', sans-serif;
+  color: #191510;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root, #root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.f06-sell-clip {
+  position: absolute;
+  inset: 0;
+}
+
+/* full-bleed cream ground — dedicated clip, never a background on #root */
+.f06-sell-bg {
+  background: #F6F3EC;
+}
+
+/* scene container = the frame ground container for all cqw units */
+.f06-sell-scene {
+  container-type: size;
+  padding: 56px 96px 0 96px;
+}
+
+/* two zones: copy/steps column (start/right in RTL) + browser card (end/left) */
+.f06-sell-cols {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5cqw;
+}
+
+.f06-sell-copy {
+  flex: none;
+  width: 28cqw;
+  margin-top: 0.4cqw;
+}
+
+.f06-sell-rule {
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: #0E5F82;
+}
+
+.f06-sell-eyebrow {
+  margin-top: 12px;
+  font-size: 0.85cqw;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #0E5F82;
+}
+
+.f06-sell-h2 {
+  margin-top: 6px;
+  font-size: 2.6cqw;
+  font-weight: 600;
+  line-height: 1.18;
+  color: #191510;
+}
+
+/* three step-circles cascade down the copy column and fill teal in sequence */
+.f06-sell-steps {
+  position: relative;
+  margin-top: 3cqw;
+  display: flex;
+  flex-direction: column;
+  gap: 3cqw;
+}
+
+.f06-sell-track {
+  position: absolute;
+  right: 27px;
+  top: 28px;
+  bottom: 28px;
+  width: 2px;
+  border-radius: 2px;
+  background: rgba(14, 95, 130, 0.18);
+  transform-origin: top center;
+}
+
+.f06-sell-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 1.1cqw;
+}
+
+.f06-sell-badge {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  flex: none;
+}
+
+.f06-sell-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(14, 95, 130, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1;
+  color: #0E5F82;
+}
+
+.f06-sell-ring {
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 2px solid rgba(14, 95, 130, 0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.f06-sell-label {
+  font-size: 1.42cqw;
+  font-weight: 500;
+  line-height: 1.55;
+  color: #191510;
+}
+
+/* browser card with the real /sell capture */
+.f06-sell-cardzone {
+  flex: 1;
+  margin-top: 2.6cqw;
+}
+
+.f06-sell-card {
+  background: #F6F3EC;
+  border: 1.5px solid rgba(14, 95, 130, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.f06-sell-chrome {
+  display: flex;
+  align-items: center;
+  height: 2cqw;
+  padding: 0 0.9cqw;
+  background: rgba(14, 95, 130, 0.08);
+  border-bottom: 1.5px solid rgba(14, 95, 130, 0.2);
+}
+
+.f06-sell-dot {
+  width: 0.52cqw;
+  height: 0.52cqw;
+  border-radius: 50%;
+  background: rgba(14, 95, 130, 0.25);
+  flex: none;
+}
+
+.f06-sell-url {
+  margin-inline-start: 0.8cqw;
+  padding: 0.18cqw 1.1cqw;
+  border: 1px solid rgba(14, 95, 130, 0.2);
+  border-radius: 100px;
+  background: #F6F3EC;
+  color: #4C463D;
+  font-size: 0.72cqw;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* screenshot window — the push-in lives on the inner wrapper only */
+.f06-sell-window {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+
+.f06-sell-shot {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 30%;
+}
+
+.f06-sell-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+</style>
+
+<div id="root" dir="rtl" lang="ar" data-composition-id="06-sell" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+  <div class="clip f06-sell-clip f06-sell-bg" data-start="0" data-duration="6" data-track-index="0"></div>
+
+  <div class="clip f06-sell-clip f06-sell-scene" data-start="0" data-duration="6" data-track-index="1">
+
+    <div class="f06-sell-cols">
+
+      <!-- caption column (anchors RIGHT in RTL): eyebrow + h2 + three step-circles -->
+      <div class="f06-sell-copy">
+        <div id="f06-sell-eyebrow-block">
+          <div class="f06-sell-rule"></div>
+          <div class="f06-sell-eyebrow">لأصحاب الخيل</div>
+        </div>
+
+        <h2 id="f06-sell-h2" class="f06-sell-h2">اعرض حصانك للبيع</h2>
+
+        <div class="f06-sell-steps" id="f06-sell-steps">
+          <div class="f06-sell-track" id="f06-sell-track"></div>
+
+          <div class="f06-sell-step" id="f06-sell-step1">
+            <div class="f06-sell-badge">
+              <div class="f06-sell-circle" id="f06-sell-circle1"><span id="f06-sell-num1">١</span></div>
+            </div>
+            <div class="f06-sell-label" id="f06-sell-label1">ارفع طلب البيع بالصور والسعر</div>
+          </div>
+
+          <div class="f06-sell-step" id="f06-sell-step2">
+            <div class="f06-sell-badge">
+              <div class="f06-sell-circle" id="f06-sell-circle2"><span id="f06-sell-num2">٢</span></div>
+            </div>
+            <div class="f06-sell-label" id="f06-sell-label2">الإدارة تعاين وتعتمد</div>
+          </div>
+
+          <div class="f06-sell-step" id="f06-sell-step3">
+            <div class="f06-sell-badge">
+              <div class="f06-sell-circle" id="f06-sell-circle3"><span id="f06-sell-num3">٣</span></div>
+              <div class="f06-sell-ring" id="f06-sell-ring3"></div>
+            </div>
+            <div class="f06-sell-label" id="f06-sell-label3">يُعرض للبيع أو في المزاد</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- browser card seats LEFT (~58%) holding the real /sell capture -->
+      <div class="f06-sell-cardzone" id="f06-sell-card">
+        <div class="f06-sell-card">
+          <div class="f06-sell-chrome">
+            <span class="f06-sell-dot"></span>
+            <span class="f06-sell-dot"></span>
+            <span class="f06-sell-dot"></span>
+            <span class="f06-sell-url">بيع حمّانك</span>
+          </div>
+          <div class="f06-sell-window">
+            <div class="f06-sell-shot" id="f06-sell-shot" data-layout-ignore>
+              <img src="assets/sell.png" alt="نموذج بيع حمّانك — صفحة عرض الحصان للبيع" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+
+  /* Scene 1 (0.0–1.5s) — browser card with the real /sell capture slides up + fades in
+     (seats left); eyebrow + h2 reveal with it in the right-hand caption column. */
+  tl.fromTo("#f06-sell-card",
+    { y: 44, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.85, ease: "power3.out" }, 0.02);
+  tl.fromTo(".f06-sell-dot",
+    { opacity: 0 },
+    { opacity: 1, duration: 0.35, stagger: 0.07, ease: "power1.out" }, 0.22);
+  tl.fromTo("#f06-sell-card .f06-sell-url",
+    { opacity: 0 },
+    { opacity: 1, duration: 0.4, ease: "power1.out" }, 0.4);
+  tl.fromTo("#f06-sell-eyebrow-block",
+    { y: 14, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.55, ease: "power2.out" }, 0.26);
+  tl.fromTo("#f06-sell-h2",
+    { y: 22, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.65, ease: "power2.out" }, 0.42);
+
+  /* Scene 2 (1.5–4.2s) — the stepwise state-change signature: three step-circles cascade
+     down the right column at a ~0.9s stagger, each landing then ticking pending → active
+     (soft tint fills teal, numeral flips to cream) with its label flowing out beside it.
+     The connector track draws down as the steps land; the camera pushes gently toward the
+     gate hero inside the real capture (inner wrapper only, never the clip). */
+  tl.fromTo("#f06-sell-track",
+    { scaleY: 0 },
+    { scaleY: 1, duration: 2.0, ease: "power1.inOut" }, 1.5);
+
+  tl.fromTo("#f06-sell-step1",
+    { y: -26, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 1.55);
+  tl.fromTo("#f06-sell-circle1",
+    { scale: 0.55 },
+    { scale: 1, duration: 0.55, ease: "back.out(1.9)" }, 1.6);
+  tl.fromTo("#f06-sell-circle1",
+    { backgroundColor: "rgba(14, 95, 130, 0.08)" },
+    { backgroundColor: "rgb(14, 95, 130)", duration: 0.35, ease: "power2.inOut" }, 1.87);
+  tl.fromTo("#f06-sell-num1",
+    { color: "#0E5F82" },
+    { color: "#F6F3EC", duration: 0.35, ease: "power2.inOut" }, 1.87);
+  tl.fromTo("#f06-sell-label1",
+    { x: 16, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 1.65);
+
+  tl.fromTo("#f06-sell-step2",
+    { y: -26, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 2.45);
+  tl.fromTo("#f06-sell-circle2",
+    { scale: 0.55 },
+    { scale: 1, duration: 0.55, ease: "back.out(1.9)" }, 2.5);
+  tl.fromTo("#f06-sell-circle2",
+    { backgroundColor: "rgba(14, 95, 130, 0.08)" },
+    { backgroundColor: "rgb(14, 95, 130)", duration: 0.35, ease: "power2.inOut" }, 2.77);
+  tl.fromTo("#f06-sell-num2",
+    { color: "#0E5F82" },
+    { color: "#F6F3EC", duration: 0.35, ease: "power2.inOut" }, 2.77);
+  tl.fromTo("#f06-sell-label2",
+    { x: 16, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 2.55);
+
+  tl.fromTo("#f06-sell-step3",
+    { y: -26, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 3.35);
+  tl.fromTo("#f06-sell-circle3",
+    { scale: 0.55 },
+    { scale: 1, duration: 0.55, ease: "back.out(1.9)" }, 3.4);
+  tl.fromTo("#f06-sell-circle3",
+    { backgroundColor: "rgba(14, 95, 130, 0.08)" },
+    { backgroundColor: "rgb(14, 95, 130)", duration: 0.35, ease: "power2.inOut" }, 3.67);
+  tl.fromTo("#f06-sell-num3",
+    { color: "#0E5F82" },
+    { color: "#F6F3EC", duration: 0.35, ease: "power2.inOut" }, 3.67);
+  tl.fromTo("#f06-sell-label3",
+    { x: 16, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 3.45);
+
+  tl.fromTo("#f06-sell-shot",
+    { scale: 1 },
+    { scale: 1.16, duration: 4.0, ease: "power1.inOut" }, 1.5);
+
+  /* one-shot ring echo on the final step as it completes — then stillness */
+  tl.set("#f06-sell-ring3", { opacity: 0.65, scale: 0.7 }, 3.95);
+  tl.to("#f06-sell-ring3",
+    { opacity: 0, scale: 1.6, duration: 0.75, ease: "power2.out" }, 3.95);
+
+  /* Scene 3 (4.2–5.5s) — steps settled; hold and read. No exits: the frame
+     unmounts under the root transition. */
+
+  window.__timelines["06-sell"] = tl;
+})();
+</script>
+</template>

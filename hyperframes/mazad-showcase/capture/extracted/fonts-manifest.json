@@ -1,0 +1,221 @@
+{
+  "files": [
+    {
+      "file": "6xKtdSZaM9iE8KbpRA_hJFQNYuDyP7bh.woff2",
+      "family": "Quicksand",
+      "rawFamily": "Quicksand Light",
+      "subfamily": "Regular",
+      "postscript": "Quicksand-Light",
+      "weight": 300,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "6xKtdSZaM9iE8KbpRA_hJVQNYuDyP7bh.woff2",
+      "family": "Quicksand",
+      "rawFamily": "Quicksand Light",
+      "subfamily": "Regular",
+      "postscript": "Quicksand-Light",
+      "weight": 300,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "6xKtdSZaM9iE8KbpRA_hK1QNYuDyPw.woff2",
+      "family": "Quicksand",
+      "rawFamily": "Quicksand Light",
+      "subfamily": "Regular",
+      "postscript": "Quicksand-Light",
+      "weight": 300,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2",
+      "family": "Montserrat",
+      "rawFamily": "Montserrat Thin",
+      "subfamily": "Regular",
+      "postscript": "Montserrat-Thin",
+      "weight": 100,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2",
+      "family": "Montserrat",
+      "rawFamily": "Montserrat Thin",
+      "subfamily": "Regular",
+      "postscript": "Montserrat-Thin",
+      "weight": 100,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2",
+      "family": "Montserrat",
+      "rawFamily": "Montserrat Thin",
+      "subfamily": "Regular",
+      "postscript": "Montserrat-Thin",
+      "weight": 100,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "JTUSjIg1_i6t8kCHKm459WRhyyTh89ZNpQ.woff2",
+      "family": "Montserrat",
+      "rawFamily": "Montserrat Thin",
+      "subfamily": "Regular",
+      "postscript": "Montserrat-Thin",
+      "weight": 100,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "JTUSjIg1_i6t8kCHKm459WZhyyTh89ZNpQ.woff2",
+      "family": "Montserrat",
+      "rawFamily": "Montserrat Thin",
+      "subfamily": "Regular",
+      "postscript": "Montserrat-Thin",
+      "weight": 100,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2",
+      "family": "Alexandria",
+      "rawFamily": "Alexandria",
+      "subfamily": "Regular",
+      "postscript": "Alexandria-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2",
+      "family": "Alexandria",
+      "rawFamily": "Alexandria",
+      "subfamily": "Regular",
+      "postscript": "Alexandria-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2",
+      "family": "Alexandria",
+      "rawFamily": "Alexandria",
+      "subfamily": "Regular",
+      "postscript": "Alexandria-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    },
+    {
+      "file": "UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2",
+      "family": "Alexandria",
+      "rawFamily": "Alexandria",
+      "subfamily": "Regular",
+      "postscript": "Alexandria-Regular",
+      "weight": 400,
+      "style": "normal",
+      "variationAxes": [
+        "wght"
+      ],
+      "identified": true,
+      "isIcon": false
+    }
+  ],
+  "families": [
+    {
+      "family": "Alexandria",
+      "weights": [
+        400
+      ],
+      "variable": true,
+      "fileCount": 4,
+      "files": [
+        "UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2",
+        "UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2",
+        "UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2",
+        "UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2"
+      ]
+    },
+    {
+      "family": "Montserrat",
+      "weights": [
+        100
+      ],
+      "variable": true,
+      "fileCount": 5,
+      "files": [
+        "JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2",
+        "JTUSjIg1_i6t8kCHKm459WRhyyTh89ZNpQ.woff2",
+        "JTUSjIg1_i6t8kCHKm459WZhyyTh89ZNpQ.woff2",
+        "JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2",
+        "JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2"
+      ]
+    },
+    {
+      "family": "Quicksand",
+      "weights": [
+        300
+      ],
+      "variable": true,
+      "fileCount": 3,
+      "files": [
+        "6xKtdSZaM9iE8KbpRA_hJFQNYuDyP7bh.woff2",
+        "6xKtdSZaM9iE8KbpRA_hJVQNYuDyP7bh.woff2",
+        "6xKtdSZaM9iE8KbpRA_hK1QNYuDyPw.woff2"
+      ]
+    }
+  ],
+  "unidentified": [],
+  "meta": {
+    "generatedAt": "2026-09-29T22:11:29.279Z",
+    "tool": "fontkit"
+  }
+}

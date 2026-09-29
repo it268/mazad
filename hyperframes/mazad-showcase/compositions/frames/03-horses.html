@@ -1,0 +1,384 @@
+<template>
+<style>
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ——— 03-horses · frame styles (Blue Professional tokens) ——— */
+
+#root {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Alexandria', sans-serif;
+  color: #191510;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root, #root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.f03-horses-clip {
+  position: absolute;
+  inset: 0;
+}
+
+/* full-bleed cream ground — dedicated clip, never a background on #root */
+.f03-horses-bg {
+  background: #F6F3EC;
+}
+
+/* scene container = the frame ground container for all cqw units */
+.f03-horses-scene {
+  container-type: size;
+}
+
+/* browser card — sits LEFT (~58% width), caption column RIGHT (RTL mirrored split) */
+.f03-horses-cardzone {
+  position: absolute;
+  left: 5cqw;
+  top: 9cqh;
+  width: 58cqw;
+}
+
+.f03-horses-card {
+  background: #F6F3EC;
+  border: 1.5px solid rgba(14, 95, 130, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.f03-horses-chrome {
+  display: flex;
+  align-items: center;
+  height: 2cqw;
+  padding: 0 0.9cqw;
+  background: rgba(14, 95, 130, 0.08);
+  border-bottom: 1.5px solid rgba(14, 95, 130, 0.2);
+}
+
+.f03-horses-dot {
+  width: 0.52cqw;
+  height: 0.52cqw;
+  border-radius: 50%;
+  background: rgba(14, 95, 130, 0.25);
+  flex: none;
+}
+
+.f03-horses-url {
+  margin-inline-start: 0.8cqw;
+  padding: 0.22cqw 1.2cqw;
+  border: 1px solid rgba(14, 95, 130, 0.2);
+  border-radius: 100px;
+  background: #F6F3EC;
+  color: #4C463D;
+  font-size: 0.72cqw;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* screenshot window — camera push lives on the inner wrapper only, never the clip */
+.f03-horses-window {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+
+.f03-horses-shot {
+  position: absolute;
+  inset: 0;
+  transform-origin: 59% 63%; /* aimed at the horse cards row of the browse grid */
+}
+
+.f03-horses-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* caption column — anchored RIGHT (RTL), card LEFT */
+.f03-horses-col {
+  position: absolute;
+  right: 5cqw;
+  top: 26cqh;
+  width: 24.5cqw;
+  text-align: right;
+}
+
+.f03-horses-rule {
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: #0E5F82;
+  margin-inline-start: auto;
+}
+
+/* Arabic eyebrow: cobalt + weight, no letter-spacing (cursive script must stay joined) */
+.f03-horses-eyebrow {
+  margin-top: 12px;
+  font-size: 0.85cqw;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #0E5F82;
+}
+
+.f03-horses-h2 {
+  margin-top: 6px;
+  font-size: 2.6cqw;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #191510;
+}
+
+/* the three cascading tinted chips (grid-card-assemble, overlay adaptation) */
+.f03-horses-chips {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.f03-horses-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55cqw;
+  padding: 0.5cqw 1.15cqw;
+  background: rgba(14, 95, 130, 0.08);
+  border: 1.5px solid rgba(14, 95, 130, 0.2);
+  border-radius: 100px;
+  color: #0E5F82;
+  font-size: 1.05cqw;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.f03-horses-chipdot {
+  width: 0.42cqw;
+  height: 0.42cqw;
+  border-radius: 50%;
+  background: #0E5F82;
+  flex: none;
+}
+</style>
+
+<div id="root" dir="rtl" lang="ar" data-composition-id="03-horses" data-start="0" data-duration="5.5" data-width="1920" data-height="1080">
+  <div class="clip f03-horses-clip f03-horses-bg" data-start="0" data-duration="5.5" data-track-index="0"></div>
+
+  <div class="clip f03-horses-clip f03-horses-scene" data-start="0" data-duration="5.5" data-track-index="1">
+
+    <div class="f03-horses-cardzone">
+      <div id="f03-horses-card" class="f03-horses-card">
+        <div class="f03-horses-chrome">
+          <span class="f03-horses-dot"></span>
+          <span class="f03-horses-dot"></span>
+          <span class="f03-horses-dot"></span>
+          <span class="f03-horses-url">مزاد الفروسية · الخيل</span>
+        </div>
+        <div class="f03-horses-window">
+          <div id="f03-horses-shot" class="f03-horses-shot" data-layout-allow-overflow>
+            <img src="assets/horses.png" alt="صفحة الخيل المعروضة للبيع" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f03-horses-col">
+      <div id="f03-horses-rule" class="f03-horses-rule"></div>
+      <div id="f03-horses-eyebrow" class="f03-horses-eyebrow">السوق</div>
+      <h2 id="f03-horses-h2" class="f03-horses-h2">خيل معروضة للبيع</h2>
+      <div class="f03-horses-chips">
+        <div id="f03-horses-chip1" class="f03-horses-chip"><span class="f03-horses-chipdot"></span>سلالة أصيلة</div>
+        <div id="f03-horses-chip2" class="f03-horses-chip"><span class="f03-horses-chipdot"></span>معاينة من الإدارة</div>
+        <div id="f03-horses-chip3" class="f03-horses-chip"><span class="f03-horses-chipdot"></span>سعر واضح</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+
+  /* Scene 1 (0.0–1.4s) — the browser card seats LEFT with a lean settle (slides in,
+     decelerating from -2.4deg to its resting -0.8deg lean); the cobalt rule, eyebrow
+     "السوق" and h2 "خيل معروضة للبيع" reveal with it on the right column. */
+  tl.fromTo("#f03-horses-card",
+    { x: -70, y: 36, rotation: -2.4, autoAlpha: 0 },
+    { x: 0, y: 0, rotation: -0.8, autoAlpha: 1, duration: 1.0, ease: "power3.out" }, 0.02);
+  tl.fromTo("#f03-horses-rule",
+    { scaleX: 0 },
+    { scaleX: 1, transformOrigin: "100% 50%", duration: 0.55, ease: "power2.out" }, 0.15);
+  tl.fromTo("#f03-horses-eyebrow",
+    { y: 22, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.6, ease: "power2.out" }, 0.25);
+  tl.fromTo("#f03-horses-h2",
+    { y: 30, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.75, ease: "power2.out" }, 0.38);
+
+  /* slow push-in phase 1 (0.25–3.4s) — steady 1.0→1.045 camera move toward the horse
+     cards row of the grid; inner wrapper only, never the timed clip element. */
+  tl.fromTo("#f03-horses-shot",
+    { scale: 1 },
+    { scale: 1.045, duration: 3.15, ease: "power1.inOut" }, 0.25);
+
+  /* Scene 2 (1.4–3.4s) — the three tinted chips cascade in on their reading beats,
+     0.35s apart: spring pop from the inline-start (right) side. */
+  tl.fromTo("#f03-horses-chip1",
+    { x: 34, scale: 0.55, autoAlpha: 0 },
+    { x: 0, scale: 1, autoAlpha: 1, duration: 0.7, ease: "back.out(1.7)" }, 1.45);
+  tl.fromTo("#f03-horses-chip2",
+    { x: 34, scale: 0.55, autoAlpha: 0 },
+    { x: 0, scale: 1, autoAlpha: 1, duration: 0.7, ease: "back.out(1.7)" }, 1.8);
+  tl.fromTo("#f03-horses-chip3",
+    { x: 34, scale: 0.55, autoAlpha: 0 },
+    { x: 0, scale: 1, autoAlpha: 1, duration: 0.7, ease: "back.out(1.7)" }, 2.15);
+
+  /* Scene 3 (3.4–5.0s) — final micro-settle of the push (1.045→1.062, decelerating),
+     then the assembled frame holds and reads. No exits: the frame unmounts under
+     the root transition. */
+  tl.fromTo("#f03-horses-shot",
+    { scale: 1.045 },
+    { scale: 1.062, duration: 1.3, ease: "power2.out" }, 3.4);
+
+  window.__timelines["03-horses"] = tl;
+})();
+</script>
+</template>

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "preferences": {
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "mazad-showcase"
+      ],
+      "updated_at": "2026-09-29T22:10:47.790Z"
+    },
+    "language": {
+      "value": "ar",
+      "confirmed_in": [
+        "mazad-showcase"
+      ],
+      "updated_at": "2026-09-29T22:10:47.959Z"
+    },
+    "style_preset.product-launch-video": {
+      "value": "blue-professional",
+      "confirmed_in": [
+        "mazad-showcase"
+      ],
+      "updated_at": "2026-09-29T22:22:36.671Z"
+    }
+  },
+  "sightings": {}
+}

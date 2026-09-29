@@ -1,0 +1,474 @@
+<template>
+<style>
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiLdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaiPdA5E64BdCIg.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face{
+  font-family: 'Alexandria';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ——— 05-horse · frame styles (Blue Professional tokens) ——— */
+
+#root {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Alexandria', sans-serif;
+  color: #191510;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root, #root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.f05-horse-clip {
+  position: absolute;
+  inset: 0;
+}
+
+/* full-bleed cream ground — dedicated clip, never a background on #root */
+.f05-horse-bg {
+  background: #F6F3EC;
+}
+
+/* scene container = the frame ground container for all cqw units */
+.f05-horse-scene {
+  container-type: size;
+  padding: 44px 96px 0 96px;
+}
+
+/* header band: eyebrow block (start/right in RTL) + tag pill (end/left) */
+.f05-horse-headrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.f05-horse-rule {
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: #0E5F82;
+}
+
+.f05-horse-eyebrow {
+  margin-top: 10px;
+  font-size: 0.85cqw;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #0E5F82;
+}
+
+.f05-horse-h2 {
+  margin-top: 4px;
+  font-size: 2.6cqw;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #191510;
+}
+
+.f05-horse-pill {
+  margin-top: 4px;
+  padding: 8px 22px;
+  border-radius: 100px;
+  background: rgba(14, 95, 130, 0.08);
+  color: #0E5F82;
+  font-size: 0.8cqw;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* browser card */
+.f05-horse-cardzone {
+  margin-top: 18px;
+}
+
+.f05-horse-card {
+  width: 62cqw;
+  margin-inline: auto;
+  background: #F6F3EC;
+  border: 1.5px solid rgba(14, 95, 130, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.f05-horse-chrome {
+  display: flex;
+  align-items: center;
+  height: 2cqw;
+  padding: 0 0.9cqw;
+  background: rgba(14, 95, 130, 0.08);
+  border-bottom: 1.5px solid rgba(14, 95, 130, 0.2);
+}
+
+.f05-horse-dot {
+  width: 0.52cqw;
+  height: 0.52cqw;
+  border-radius: 50%;
+  background: rgba(14, 95, 130, 0.25);
+  flex: none;
+}
+
+.f05-horse-url {
+  margin-inline-start: 0.8cqw;
+  padding: 0.22cqw 1.2cqw;
+  border: 1px solid rgba(14, 95, 130, 0.2);
+  border-radius: 100px;
+  background: #F6F3EC;
+  color: #4C463D;
+  font-size: 0.72cqw;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* screenshot window — micro-drift lives on the inner wrapper only */
+.f05-horse-window {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+
+.f05-horse-shot {
+  position: absolute;
+  inset: 0;
+  transform-origin: 33.3% 51.4%;
+}
+
+.f05-horse-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* the one caption beat — right margin, aligned with the specs-table band */
+.f05-horse-note {
+  position: absolute;
+  top: 26cqw;
+  right: 5cqw;
+  width: 13cqw;
+  text-align: right;
+}
+
+.f05-horse-note-tokens {
+  display: block;
+  font-size: 1.4cqw;
+  font-weight: 600;
+  line-height: 1.65;
+  color: #0E5F82;
+}
+
+.f05-horse-note-qual {
+  display: block;
+  margin-top: 0.3cqw;
+  font-size: 1.4cqw;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #4C463D;
+}
+</style>
+
+<div id="root" dir="rtl" lang="ar" data-composition-id="05-horse" data-start="0" data-duration="5.5" data-width="1920" data-height="1080">
+  <div class="clip f05-horse-clip f05-horse-bg" data-start="0" data-duration="5.5" data-track-index="0"></div>
+
+  <div class="clip f05-horse-clip f05-horse-scene" data-start="0" data-duration="5.5" data-track-index="1">
+
+    <div class="f05-horse-headrow">
+      <div id="f05-horse-eyebrow-block">
+        <div class="f05-horse-rule"></div>
+        <div class="f05-horse-eyebrow">شفافية كاملة</div>
+      </div>
+      <div id="f05-horse-pill" class="f05-horse-pill">بطاقة الحصان</div>
+    </div>
+
+    <h2 id="f05-horse-h2" class="f05-horse-h2">بطاقة حصان بكل التفاصيل</h2>
+
+    <div class="f05-horse-cardzone">
+      <div id="f05-horse-card-inner">
+        <div class="f05-horse-card">
+          <div class="f05-horse-chrome">
+            <span class="f05-horse-dot"></span>
+            <span class="f05-horse-dot"></span>
+            <span class="f05-horse-dot"></span>
+            <span class="f05-horse-url">صقر الليل</span>
+          </div>
+          <div class="f05-horse-window">
+            <div class="f05-horse-shot" id="f05-horse-shot" data-layout-ignore>
+              <img src="assets/horse-detail.png" alt="صفحة تفاصيل الحصان صقر الليل" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="f05-horse-note" class="f05-horse-note">
+      <span class="f05-horse-note-tokens">سلالة · عمر · لون · نسب</span>
+      <span class="f05-horse-note-qual">— كل التفاصيل في بطاقة واحدة</span>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+
+  /* Scene 1 (0.0–1.8s) — the ONE restrained move: browser card slides up + crossfades,
+     header chrome seats in above it (right-aligned). */
+  tl.fromTo("#f05-horse-card-inner",
+    { y: 44, opacity: 0 },
+    { y: 0, opacity: 1, duration: 1.05, ease: "power3.out" }, 0.02);
+  tl.fromTo("#f05-horse-eyebrow-block",
+    { y: 14, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 0.16);
+  tl.fromTo("#f05-horse-h2",
+    { y: 18, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 0.32);
+  tl.fromTo("#f05-horse-pill",
+    { opacity: 0 },
+    { opacity: 1, duration: 0.5, ease: "power1.out" }, 0.46);
+
+  /* Scene 2 (1.8–3.4s) — the single muted line fades up on its beat (right side);
+     camera micro-drifts a hair toward the specs table (inner wrapper only, never the clip). */
+  tl.fromTo("#f05-horse-note",
+    { y: 24, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.85, ease: "power2.out" }, 1.85);
+  tl.fromTo("#f05-horse-shot",
+    { scale: 1 },
+    { scale: 1.04, duration: 1.7, ease: "power2.out" }, 1.8);
+
+  /* Scene 3 (3.4–5.0s) — still hold; card and captions read. No exits: the frame
+     unmounts under the root transition. */
+
+  window.__timelines["05-horse"] = tl;
+})();
+</script>
+</template>

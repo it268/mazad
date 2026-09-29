@@ -1,0 +1,298 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Alexandria",
+      "fontSize": "48px",
+      "fontWeight": "800",
+      "lineHeight": "62.4px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "المزاد الذي يجمع البائع والمشتري في عالم خيل العرب الأصيلة"
+    },
+    {
+      "role": "heading",
+      "fontFamily": "Alexandria",
+      "fontSize": "40px",
+      "fontWeight": "800",
+      "lineHeight": "54px",
+      "letterSpacing": "normal",
+      "color": "#191510",
+      "sampleText": "مزادات مباشرة ومقبلة"
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "Alexandria",
+      "fontSize": "30px",
+      "fontWeight": "800",
+      "lineHeight": "36px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "عندك حصان أصيل للبيع؟"
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Alexandria",
+      "fontSize": "18px",
+      "fontWeight": "800",
+      "lineHeight": "28px",
+      "letterSpacing": "normal",
+      "color": "#191510",
+      "sampleText": "همّ الفخر"
+    },
+    {
+      "role": "body",
+      "fontFamily": "Alexandria",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "lineHeight": "28px",
+      "letterSpacing": "normal",
+      "color": "oklab(0.999994 0.0000455677 0.0000200868 / 0.8)",
+      "sampleText": "الحصان العربي ليس مجرد سلعة، بل كنز لا يقدَّر بثمن وتاريخ ون"
+    },
+    {
+      "role": "heading-4",
+      "fontFamily": "Alexandria",
+      "fontSize": "16px",
+      "fontWeight": "800",
+      "lineHeight": "28px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "روابط سريعة"
+    },
+    {
+      "role": "link",
+      "fontFamily": "Alexandria",
+      "fontSize": "15.2px",
+      "fontWeight": "700",
+      "lineHeight": "26.6px",
+      "letterSpacing": "normal",
+      "color": "#F5730F",
+      "sampleText": "الرئيسية"
+    },
+    {
+      "role": "label",
+      "fontFamily": "Alexandria",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "lineHeight": "19.2px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "مزاد مباشر"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      2,
+      6,
+      8,
+      10,
+      12,
+      16,
+      20,
+      24,
+      26,
+      28,
+      32,
+      40,
+      56,
+      64
+    ],
+    "baseUnit": 8
+  },
+  "radius": [
+    "17.6px",
+    "999px"
+  ],
+  "shadows": [
+    {
+      "value": "rgba(14, 40, 60, 0.28) 0px 18px 40px -18px",
+      "count": 8
+    },
+    {
+      "value": "rgba(245, 115, 15, 0.65) 0px 10px 26px -10px",
+      "count": 2
+    }
+  ],
+  "buttons": [
+    {
+      "label": "دخول",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#0E5F82",
+      "padding": "8px 16px",
+      "borderRadius": "999px",
+      "border": "1px solid rgba(14, 95, 130, 0.16)",
+      "boxShadow": "none",
+      "fontSize": "15.2px",
+      "fontWeight": "700",
+      "height": "39.2812px"
+    },
+    {
+      "label": "حساب جديد",
+      "background": "transparent",
+      "backgroundImage": "linear-gradient(135deg, rgb(245, 115, 15), rgb(217, 95, 4))",
+      "backdropFilter": "",
+      "color": "#FFFFFF",
+      "padding": "8px 16px",
+      "borderRadius": "999px",
+      "border": "1px solid rgba(0, 0, 0, 0)",
+      "boxShadow": "rgba(245, 115, 15, 0.65) 0px 10px 26px -10px",
+      "fontSize": "15.2px",
+      "fontWeight": "700",
+      "height": "39.2812px"
+    },
+    {
+      "label": "الخيل المعروضة للبيع",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#FFFFFF",
+      "padding": "11.52px 25.6px",
+      "borderRadius": "999px",
+      "border": "1px solid rgba(255, 255, 255, 0.55)",
+      "boxShadow": "none",
+      "fontSize": "15.2px",
+      "fontWeight": "700",
+      "height": "46.3125px"
+    },
+    {
+      "label": "ابدأ طلب البيع",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#7D1300",
+      "padding": "11.52px 25.6px",
+      "borderRadius": "999px",
+      "border": "1px solid rgba(0, 0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "15.2px",
+      "fontWeight": "700",
+      "height": "46.3125px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#191510",
+      "padding": "0px",
+      "borderRadius": "17.6px",
+      "border": "1px solid rgba(14, 95, 130, 0.16)",
+      "boxShadow": "rgba(14, 40, 60, 0.28) 0px 18px 40px -18px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "360.594px"
+    }
+  ],
+  "nav": {
+    "label": "navigation",
+    "background": "transparent",
+    "backgroundImage": "",
+    "backdropFilter": "",
+    "color": "#191510",
+    "padding": "0px",
+    "borderRadius": "0px",
+    "border": "0px solid rgb(25, 21, 16)",
+    "boxShadow": "none",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "height": "98px"
+  },
+  "chips": [
+    {
+      "label": "مزاد مباشر",
+      "background": "#7D1300",
+      "color": "#FFFFFF",
+      "padding": "2.88px 11.2px",
+      "borderRadius": "999px",
+      "border": "0px solid rgb(255, 255, 255)",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "height": "24.9375px"
+    },
+    {
+      "label": "مزاد مجدول",
+      "background": "oklab(0.367583 0.0129961 -0.129913 / 0.1)",
+      "color": "#2F3382",
+      "padding": "2.88px 11.2px",
+      "borderRadius": "999px",
+      "border": "0px solid rgb(47, 51, 130)",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "height": "24.9375px"
+    },
+    {
+      "label": "دخول",
+      "background": "transparent",
+      "color": "#0E5F82",
+      "padding": "8px 16px",
+      "borderRadius": "999px",
+      "border": "1px solid rgba(14, 95, 130, 0.16)",
+      "boxShadow": "none",
+      "fontSize": "15.2px",
+      "fontWeight": "700",
+      "height": "39.2812px"
+    },
+    {
+      "label": "حساب جديد",
+      "background": "transparent",
+      "color": "#FFFFFF",
+      "padding": "8px 16px",
+      "borderRadius": "999px",
+      "border": "1px solid rgba(0, 0, 0, 0)",
+      "boxShadow": "rgba(245, 115, 15, 0.65) 0px 10px 26px -10px",
+      "fontSize": "15.2px",
+      "fontWeight": "700",
+      "height": "39.2812px"
+    }
+  ],
+  "statCells": [],
+  "tabs": [
+    {
+      "label": "0",
+      "background": "transparent",
+      "color": "#FF9A45",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px solid rgb(255, 154, 69)",
+      "boxShadow": "none",
+      "fontSize": "30px",
+      "fontWeight": "800",
+      "height": "36px"
+    }
+  ],
+  "backgrounds": [
+    {
+      "value": "linear-gradient(to left bottom in oklab, rgb(47, 51, 130) 0%, rgb(35, 38, 99) 50%, rgb(10, 74, 102) 100%)",
+      "area": 1225320
+    },
+    {
+      "value": "linear-gradient(to left in oklab, rgb(245, 115, 15) 0%, rgb(125, 19, 0) 100%)",
+      "area": 341408
+    },
+    {
+      "value": "linear-gradient(to left bottom, oklab(0.458115 -0.0535353 -0.0732113 / 0.15) 0%, oklab(0.367583 0.0129961 -0.129913 / 0.15) 100%)",
+      "area": 311168
+    },
+    {
+      "value": "linear-gradient(to left in oklab, rgb(47, 51, 130) 0%, rgb(10, 74, 102) 100%)",
+      "area": 63360
+    }
+  ],
+  "glass": [
+    {
+      "backdropFilter": "blur(8px)",
+      "background": "oklab(0.999994 0.0000455678 0.0000200868 / 0.1)",
+      "border": "1px solid oklab(0.999994 0.0000455678 0.0000200868 / 0.15)",
+      "borderRadius": "16px",
+      "boxShadow": "",
+      "area": 52311
+    }
+  ]
+}

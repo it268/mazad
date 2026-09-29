@@ -1,0 +1,61 @@
+{
+  "summary": {
+    "webAnimations": 1,
+    "cssDeclarations": 19,
+    "scrollTargets": 0,
+    "cdpAnimations": 1,
+    "canvases": 0
+  },
+  "namedAnimations": [
+    "pulse"
+  ],
+  "scrollTriggeredElements": 0,
+  "representativeAnimations": [
+    {
+      "type": "CSSAnimation",
+      "playState": "running",
+      "animationName": "pulse",
+      "targetSelector": "span.badge.bg-crimson.text-white",
+      "targetRect": {
+        "x": 1449.859375,
+        "y": 938.015625,
+        "width": 85.140625,
+        "height": 24.9375,
+        "top": 938.015625,
+        "right": 1535,
+        "bottom": 962.953125,
+        "left": 1449.859375
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "easing": "cubic-bezier(0.4, 0, 0.6, 1)",
+          "composite": "replace",
+          "opacity": "1",
+          "computedOffset": 0
+        },
+        {
+          "offset": 0.5,
+          "easing": "cubic-bezier(0.4, 0, 0.6, 1)",
+          "composite": "auto",
+          "opacity": "0.5",
+          "computedOffset": 0.5
+        },
+        {
+          "offset": 1,
+          "easing": "cubic-bezier(0.4, 0, 0.6, 1)",
+          "composite": "replace",
+          "opacity": "1",
+          "computedOffset": 1
+        }
+      ],
+      "timing": {
+        "duration": 2000,
+        "delay": 0,
+        "iterations": null,
+        "easing": "linear",
+        "direction": "normal"
+      }
+    }
+  ]
+}

@@ -72,7 +72,12 @@ export async function fetchBids(listingId: string) {
 }
 
 export async function fetchCounts() {
-  const res = await fetch(`${pbUrl.replace(/\/$/, "")}/api/mazad/stats`);
-  if (!res.ok) throw new Error(`stats ${res.status}`);
-  return res.json();
+  try {
+    const res = await fetch(`${getPb().baseURL.replace(/\/$/, "")}/api/mazad/stats`);
+    if (!res.ok) throw new Error(`stats ${res.status}`);
+    return res.json();
+  } catch (e) {
+    console.error("[fetchCounts] error=", String(e));
+    return { soldHorses: 0, auctions: 0, clients: 0 };
+  }
 }
