@@ -320,6 +320,28 @@ routerAdd("GET", "/api/mazad/debug-env", (e) => {
   e.json(200, out);
 });
 
+// One-time superuser bootstrap from server env vars. Refuses to do
+// anything once any superuser exists.
+routerAdd("POST", "/api/mazad/bootstrap-superuser", (e) => {
+  var existing = $app.findRecordsByFilter("_superusers", "", "", 1, 0);
+  if (existing.length > 0) {
+    return e.json(200, { ok: false, reason: "superuser already exists" });
+  }
+  var email = $os.getenv("PB_SUPERUSER_EMAIL");
+  var password = $os.getenv("PB_SUPERUSER_PASSWORD");
+  if (!email || !password) {
+    return e.json(400, { ok: false, reason: "PB_SUPERUSER_* env vars missing" });
+  }
+  var col = $app.findCollectionByNameOrId("_superusers");
+  var rec = new Record(col);
+  rec.set("email", email);
+  rec.set("password", password);
+  rec.set("passwordConfirm", password);
+  rec.set("verified", true);
+  $app.save(rec);
+  e.json(200, { ok: true, email: email });
+});
+
 cronAdd("mazadAuctionClock", "* * * * *", () => {
   var now = new Date().toISOString().replace("T", " ");
 
