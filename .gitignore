@@ -1,0 +1,15 @@
+node_modules
+.env
+dist
+.output
+*.log
+
+# local pocketbase binary + data
+pocketbase/pocketbase.exe
+pocketbase/pocketbase
+pocketbase/pb_data
+pocketbase/pb_data-*
+
+# local QA artifacts
+.shots
+*_b64.txt

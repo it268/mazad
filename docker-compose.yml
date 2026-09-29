@@ -1,0 +1,24 @@
+services:
+  pocketbase:
+    build: ./pocketbase
+    restart: unless-stopped
+    volumes:
+      - pb_data:/pb/pb_data
+    environment:
+      - PB_SUPERUSER_EMAIL=${PB_SUPERUSER_EMAIL}
+      - PB_SUPERUSER_PASSWORD=${PB_SUPERUSER_PASSWORD}
+
+  web:
+    build:
+      context: .
+      args:
+        VITE_PB_URL: ${VITE_PB_URL:-https://mazad-api.alfrusiyaar.com}
+    restart: unless-stopped
+    environment:
+      - PB_INTERNAL_URL=http://pocketbase:8090
+    depends_on:
+      pocketbase:
+        condition: service_healthy
+
+volumes:
+  pb_data:
