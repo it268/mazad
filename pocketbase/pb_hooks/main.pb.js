@@ -312,7 +312,7 @@ routerAdd("GET", "/api/mazad/debug-env", (e) => {
   var out = {};
   for (var i = 0; i < names.length; i++) {
     try {
-      out[names[i]] = !!std.getenv(names[i]);
+      out[names[i]] = !!$os.getenv(names[i]);
     } catch (err) {
       out[names[i]] = "std error: " + err;
     }

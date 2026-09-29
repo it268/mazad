@@ -9,8 +9,8 @@ migrate((app) => {
   var phone = "";
   var password = "";
   try {
-    phone = std.getenv("PB_ADMIN_PHONE") || "";
-    password = std.getenv("PB_ADMIN_PASSWORD") || "";
+    phone = $os.getenv("PB_ADMIN_PHONE") || "";
+    password = $os.getenv("PB_ADMIN_PASSWORD") || "";
   } catch (e) {
     // std binds unavailable — skip
   }
@@ -42,7 +42,7 @@ migrate((app) => {
   // revert: remove the seeded admin
   try {
     var users = app.findCollectionByNameOrId("users");
-    var rec = app.findFirstRecordByFilter(users, 'phone="' + std.getenv("PB_ADMIN_PHONE") + '"');
+    var rec = app.findFirstRecordByFilter(users, 'phone="' + $os.getenv("PB_ADMIN_PHONE") + '"');
     app.delete(rec);
   } catch (e) {}
 });
