@@ -7,6 +7,24 @@ const subscribe = (cb: () => void) => {
   return pb.authStore.onChange(cb);
 };
 
+// LocalAuthStore.record re-parses localStorage on every access (new object
+// identity each time), so cache the snapshot and only refresh it when the
+// serialized auth state actually changes — otherwise useSyncExternalStore
+// loops forever ("Maximum update depth exceeded") for logged-in users.
+let cachedRecord: AuthRecord | null = null;
+let cachedRaw = "";
+
+const getSnapshot = (): AuthRecord | null => {
+  const pb = getPb();
+  const record = pb.authStore.record;
+  const raw = JSON.stringify([pb.authStore.token, record]);
+  if (raw !== cachedRaw) {
+    cachedRaw = raw;
+    cachedRecord = record;
+  }
+  return cachedRecord;
+};
+
 /**
  * Auth state from the PocketBase local auth store.
  * SSR sees null (client hydrates the real state after mount).
@@ -16,7 +34,6 @@ export function useAuth(): {
   isAuthed: boolean;
   isAdmin: boolean;
 } {
-  const getSnapshot = () => getPb().authStore.record;
   const record = useSyncExternalStore(
     subscribe,
     getSnapshot,
