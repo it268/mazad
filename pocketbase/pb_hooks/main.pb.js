@@ -306,48 +306,6 @@ routerAdd("GET", "/api/mazad/stats", (e) => {
   });
 });
 
-// TEMP debug: which env vars exist inside the container (names only)
-routerAdd("GET", "/api/mazad/debug-env", (e) => {
-  var names = ["PB_SUPERUSER_EMAIL", "PB_SUPERUSER_PASSWORD", "PB_ADMIN_PHONE", "PB_ADMIN_PASSWORD", "VITE_PB_URL"];
-  var out = {};
-  for (var i = 0; i < names.length; i++) {
-    try {
-      out[names[i]] = !!$os.getenv(names[i]);
-    } catch (err) {
-      out[names[i]] = "std error: " + err;
-    }
-  }
-  e.json(200, out);
-});
-
-// One-time superuser bootstrap/repair from server env vars. The request
-// must prove it knows the env password, so the route is inert for anyone
-// without server access. Remove after initial setup if not needed.
-routerAdd("POST", "/api/mazad/bootstrap-superuser", (e) => {
-  var envPassword = $os.getenv("PB_SUPERUSER_PASSWORD");
-  var proof = "";
-  try {
-    proof = (e.requestInfo().body || {}).secret || "";
-  } catch (err) {}
-  if (!envPassword || proof !== envPassword) {
-    return e.json(403, { ok: false, reason: "invalid secret" });
-  }
-  var col = $app.findCollectionByNameOrId("_superusers");
-  var existing = $app.findRecordsByFilter("_superusers", "", "", 1, 0);
-  var rec;
-  if (existing.length > 0) {
-    rec = existing[0];
-  } else {
-    rec = new Record(col);
-    rec.set("email", $os.getenv("PB_SUPERUSER_EMAIL") || "admin@alfrusiyaar.com");
-    rec.set("verified", true);
-  }
-  rec.set("password", envPassword);
-  rec.set("passwordConfirm", envPassword);
-  $app.save(rec);
-  e.json(200, { ok: true, email: rec.get("email") });
-});
-
 cronAdd("mazadAuctionClock", "* * * * *", () => {
   var now = new Date().toISOString().replace("T", " ");
 
