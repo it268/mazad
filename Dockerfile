@@ -1,5 +1,5 @@
 # --- build ---
-FROM node:22-alpine AS build
+FROM node:24-alpine AS build
 WORKDIR /app
 
 COPY package*.json ./
@@ -13,7 +13,7 @@ ENV VITE_PB_URL=$VITE_PB_URL
 RUN npm run build
 
 # --- run ---
-FROM node:22-alpine
+FROM node:24-alpine
 WORKDIR /app
 ENV NODE_ENV=production HOST=0.0.0.0 PORT=3000
 
