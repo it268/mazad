@@ -2,6 +2,8 @@ services:
   pocketbase:
     build: ./pocketbase
     restart: unless-stopped
+    expose:
+      - "8090"
     volumes:
       - pb_data:/pb/pb_data
     environment:
@@ -14,6 +16,8 @@ services:
       args:
         VITE_PB_URL: ${VITE_PB_URL:-https://mazad-api.alfrusiyaar.com}
     restart: unless-stopped
+    expose:
+      - "3000"
     environment:
       - PB_INTERNAL_URL=http://pocketbase:8090
     depends_on:
