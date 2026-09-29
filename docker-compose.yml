@@ -9,6 +9,8 @@ services:
     environment:
       - PB_SUPERUSER_EMAIL=${PB_SUPERUSER_EMAIL}
       - PB_SUPERUSER_PASSWORD=${PB_SUPERUSER_PASSWORD}
+      - PB_ADMIN_PHONE=${PB_ADMIN_PHONE}
+      - PB_ADMIN_PASSWORD=${PB_ADMIN_PASSWORD}
     labels:
       - traefik.enable=true
       - traefik.http.routers.mazad-api.rule=Host(`mazad-api.alfrusiyaar.com`)
