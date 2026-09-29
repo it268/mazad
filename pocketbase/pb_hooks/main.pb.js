@@ -306,6 +306,20 @@ routerAdd("GET", "/api/mazad/stats", (e) => {
   });
 });
 
+// TEMP debug: which env vars exist inside the container (names only)
+routerAdd("GET", "/api/mazad/debug-env", (e) => {
+  var names = ["PB_SUPERUSER_EMAIL", "PB_SUPERUSER_PASSWORD", "PB_ADMIN_PHONE", "PB_ADMIN_PASSWORD", "VITE_PB_URL"];
+  var out = {};
+  for (var i = 0; i < names.length; i++) {
+    try {
+      out[names[i]] = !!std.getenv(names[i]);
+    } catch (err) {
+      out[names[i]] = "std error: " + err;
+    }
+  }
+  e.json(200, out);
+});
+
 cronAdd("mazadAuctionClock", "* * * * *", () => {
   var now = new Date().toISOString().replace("T", " ");
 
