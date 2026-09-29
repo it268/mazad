@@ -320,26 +320,32 @@ routerAdd("GET", "/api/mazad/debug-env", (e) => {
   e.json(200, out);
 });
 
-// One-time superuser bootstrap from server env vars. Refuses to do
-// anything once any superuser exists.
+// One-time superuser bootstrap/repair from server env vars. The request
+// must prove it knows the env password, so the route is inert for anyone
+// without server access. Remove after initial setup if not needed.
 routerAdd("POST", "/api/mazad/bootstrap-superuser", (e) => {
-  var existing = $app.findRecordsByFilter("_superusers", "", "", 1, 0);
-  if (existing.length > 0) {
-    return e.json(200, { ok: false, reason: "superuser already exists" });
-  }
-  var email = $os.getenv("PB_SUPERUSER_EMAIL");
-  var password = $os.getenv("PB_SUPERUSER_PASSWORD");
-  if (!email || !password) {
-    return e.json(400, { ok: false, reason: "PB_SUPERUSER_* env vars missing" });
+  var envPassword = $os.getenv("PB_SUPERUSER_PASSWORD");
+  var proof = "";
+  try {
+    proof = (e.requestInfo().body || {}).secret || "";
+  } catch (err) {}
+  if (!envPassword || proof !== envPassword) {
+    return e.json(403, { ok: false, reason: "invalid secret" });
   }
   var col = $app.findCollectionByNameOrId("_superusers");
-  var rec = new Record(col);
-  rec.set("email", email);
-  rec.set("password", password);
-  rec.set("passwordConfirm", password);
-  rec.set("verified", true);
+  var existing = $app.findRecordsByFilter("_superusers", "", "", 1, 0);
+  var rec;
+  if (existing.length > 0) {
+    rec = existing[0];
+  } else {
+    rec = new Record(col);
+    rec.set("email", $os.getenv("PB_SUPERUSER_EMAIL") || "admin@alfrusiyaar.com");
+    rec.set("verified", true);
+  }
+  rec.set("password", envPassword);
+  rec.set("passwordConfirm", envPassword);
   $app.save(rec);
-  e.json(200, { ok: true, email: email });
+  e.json(200, { ok: true, email: rec.get("email") });
 });
 
 cronAdd("mazadAuctionClock", "* * * * *", () => {
