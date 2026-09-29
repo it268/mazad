@@ -9,6 +9,18 @@ services:
     environment:
       - PB_SUPERUSER_EMAIL=${PB_SUPERUSER_EMAIL}
       - PB_SUPERUSER_PASSWORD=${PB_SUPERUSER_PASSWORD}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mazad-api.rule=Host(`mazad-api.alfrusiyaar.com`)
+      - traefik.http.routers.mazad-api.entrypoints=https
+      - traefik.http.routers.mazad-api.tls.certresolver=letsencrypt
+      - traefik.http.routers.mazad-api.service=mazad-api
+      - traefik.http.services.mazad-api.loadbalancer.server.port=8090
+      - traefik.http.routers.mazad-api-http.rule=Host(`mazad-api.alfrusiyaar.com`)
+      - traefik.http.routers.mazad-api-http.entrypoints=http
+      - traefik.http.routers.mazad-api-http.service=mazad-api
+      - traefik.http.routers.mazad-api-http.middlewares=mazad-redirect
+      - traefik.http.middlewares.mazad-redirect.redirectscheme.scheme=https
 
   web:
     build:
@@ -23,6 +35,17 @@ services:
     depends_on:
       pocketbase:
         condition: service_healthy
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mazad-web.rule=Host(`mazad.alfrusiyaar.com`)
+      - traefik.http.routers.mazad-web.entrypoints=https
+      - traefik.http.routers.mazad-web.tls.certresolver=letsencrypt
+      - traefik.http.routers.mazad-web.service=mazad-web
+      - traefik.http.services.mazad-web.loadbalancer.server.port=3000
+      - traefik.http.routers.mazad-web-http.rule=Host(`mazad.alfrusiyaar.com`)
+      - traefik.http.routers.mazad-web-http.entrypoints=http
+      - traefik.http.routers.mazad-web-http.service=mazad-web
+      - traefik.http.routers.mazad-web-http.middlewares=mazad-redirect
 
 volumes:
   pb_data:
