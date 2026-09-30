@@ -38,7 +38,7 @@ Scene 3 (3.6–4.5s): hold the lockup centered and still; the teal accent-line (
 
 - scene: the real home page in a browser card, slow push-in on the hero headline
 - duration: 5.5s
-- transition_in: crossfade
+- transition_in: blur-crossfade 0.6s
 - poster: 4s
 - status: animated
 - blueprint: device-surface-showcase (Adapt: static tour variant)
@@ -56,7 +56,7 @@ Scene 3 (4.0–5.5s): push eases to rest; the card and text hold and read — st
 
 - scene: the horses browse grid assembles as cards cascade into view
 - duration: 5s
-- transition_in: crossfade
+- transition_in: push-slide RIGHT
 - poster: 3.5s
 - status: animated
 - blueprint: grid-card-assemble (Adapt)
@@ -74,7 +74,7 @@ Scene 3 (3.4–5.0s): chips settle; card holds with a final micro-settle of the 
 
 - scene: open tight on the live top-bid, zoom out to reveal the whole auction room
 - duration: 8s
-- transition_in: crossfade
+- transition_in: zoom-through 0.6s
 - poster: 6s
 - status: animated
 - blueprint: zoom-out-workspace-reveal (Reproduce)
@@ -93,7 +93,7 @@ Scene 4 (6.4–8.0s): hold everything still — the room reads. No further motio
 
 - scene: the horse detail page holds nearly still with one caption beat
 - duration: 5s
-- transition_in: crossfade
+- transition_in: blur-crossfade 0.6s
 - poster: 3.5s
 - status: animated
 - blueprint: titlecard-reveal (Adapt)
@@ -111,7 +111,7 @@ Scene 3 (3.4–5.0s): still hold — the card and captions read.
 
 - scene: the sell form with a three-step journey building beside it
 - duration: 5.5s
-- transition_in: crossfade
+- transition_in: push-slide RIGHT
 - poster: 4s
 - status: animated
 - blueprint: cursor-ui-demo (Adapt: no cursor, stepwise-flow variant)
@@ -129,7 +129,7 @@ Scene 3 (4.2–5.5s): steps settle; hold and read.
 
 - scene: two real admin screens cycle inside one browser card while stat chips land
 - duration: 6s
-- transition_in: crossfade
+- transition_in: push-slide RIGHT
 - poster: 4.5s
 - status: animated
 - blueprint: device-surface-showcase (Adapt: stepwise-flow cycling variant)
@@ -148,7 +148,7 @@ Scene 4 (4.6–6.0s): hold — the back office reads.
 
 - scene: brand lockup returns with the ask and the domain pill
 - duration: 5s
-- transition_in: crossfade
+- transition_in: blur-crossfade 0.6s
 - poster: 4s
 - status: animated
 - blueprint: logo-assemble-lockup (Adapt: already-assembled settle variant)

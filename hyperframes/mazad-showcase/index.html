@@ -47,7 +47,7 @@
         data-composition-id="01-cover"
         data-composition-src="compositions/frames/01-cover.html"
         data-start="0"
-        data-duration="5"
+        data-duration="5.1"
         data-track-index="0"
       ></div>
 
@@ -67,7 +67,7 @@
         data-composition-id="03-horses"
         data-composition-src="compositions/frames/03-horses.html"
         data-start="10"
-        data-duration="5.5"
+        data-duration="5.6"
         data-track-index="0"
       ></div>
 
@@ -77,7 +77,7 @@
         data-composition-id="04-auction"
         data-composition-src="compositions/frames/04-auction.html"
         data-start="15"
-        data-duration="8.5"
+        data-duration="8.6"
         data-track-index="1"
       ></div>
 
@@ -107,7 +107,7 @@
         data-composition-id="07-admin"
         data-composition-src="compositions/frames/07-admin.html"
         data-start="33.5"
-        data-duration="6.5"
+        data-duration="6.6"
         data-track-index="0"
       ></div>
 
@@ -128,20 +128,20 @@
       window.__timelines["main"] = gsap.timeline({ paused: true });
       // ── frame transitions (injected by transitions.mjs) ──
       (function () { var tl = window.__timelines["main"];
-        tl.to("#el-01-cover", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 4.5);
-        tl.fromTo("#el-02-home", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 4.5);
-        tl.to("#el-02-home", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 10);
-        tl.fromTo("#el-03-horses", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 10);
-        tl.to("#el-03-horses", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 15);
-        tl.fromTo("#el-04-auction", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 15);
-        tl.to("#el-04-auction", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 23);
-        tl.fromTo("#el-05-horse", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 23);
-        tl.to("#el-05-horse", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 28);
-        tl.fromTo("#el-06-sell", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 28);
-        tl.to("#el-06-sell", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 33.5);
-        tl.fromTo("#el-07-admin", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 33.5);
-        tl.to("#el-07-admin", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 39.5);
-        tl.fromTo("#el-08-closing", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 39.5);
+        tl.to("#el-01-cover", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 4.5);
+        tl.fromTo("#el-02-home", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 4.5);
+        tl.to("#el-02-home", { x: 1920, duration: 0.5, ease: "power3.inOut" }, 10);
+        tl.fromTo("#el-03-horses", { x: -1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 10);
+        tl.to("#el-03-horses", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.6, ease: "power3.in" }, 15);
+        tl.fromTo("#el-04-auction", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, 15);
+        tl.to("#el-04-auction", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 23);
+        tl.fromTo("#el-05-horse", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 23);
+        tl.to("#el-05-horse", { x: 1920, duration: 0.5, ease: "power3.inOut" }, 28);
+        tl.fromTo("#el-06-sell", { x: -1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 28);
+        tl.to("#el-06-sell", { x: 1920, duration: 0.5, ease: "power3.inOut" }, 33.5);
+        tl.fromTo("#el-07-admin", { x: -1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 33.5);
+        tl.to("#el-07-admin", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 39.5);
+        tl.fromTo("#el-08-closing", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 39.5);
         tl.to({}, { duration: 44.5 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
       })();
     </script>
