@@ -1,0 +1,361 @@
+<template>
+  <style>
+    /* ===== Alexandria — local files only (assets/fonts) ===== */
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+      unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+      unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* ===== frame root (styled by #root only) ===== */
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      container-type: size;
+      font-family: 'Alexandria', sans-serif;
+      color: #191510;
+    }
+
+    /* ===== clips ===== */
+    .f06-sell-clip {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .f06-sell-ground {
+      background: #F6F3EC;
+    }
+
+    /* ===== browser card, LEFT ~58% (x 96-1196, y 150-850 — above the 83%
+           keep-out at 896). The card itself never drifts after entry: the slow
+           push rides the inner shot wrapper only. ===== */
+    .f06-sell-card {
+      position: absolute;
+      left: 96px;
+      top: 150px;
+      width: 1100px;
+      height: 700px;
+      box-sizing: border-box;
+      background: #F6F3EC;
+      border: 1.5px solid rgba(14, 95, 130, 0.2);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .f06-sell-chrome {
+      flex: 0 0 auto;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 20px;
+      box-sizing: border-box;
+      background: rgba(14, 95, 130, 0.04);
+      border-bottom: 1.5px solid rgba(14, 95, 130, 0.2);
+    }
+    .f06-sell-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(14, 95, 130, 0.2);
+    }
+    .f06-sell-urlpill {
+      width: 320px;
+      height: 28px;
+      border-radius: 100px;
+      background: rgba(14, 95, 130, 0.05);
+      border: 1px solid rgba(14, 95, 130, 0.14);
+      margin-inline-start: 14px;
+    }
+    .f06-sell-viewport {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      background: rgba(14, 95, 130, 0.04);
+    }
+    /* push wrapper — the ONLY scaled element over the screenshots */
+    .f06-sell-shotwrap {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+    /* both real surfaces stacked, same geometry so the dissolve registers */
+    .f06-sell-shot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 0%;
+      display: block;
+    }
+    /* teal highlight ring — sits over the live مزايداتي row of account.png
+       (row spans ~64.5-72.8% of the shot height, ~17.5-82.5% of its width;
+       measured from the real capture). Lives INSIDE the push wrapper so it
+       stays glued to the row under the drift. */
+    .f06-sell-ring {
+      position: absolute;
+      left: 16%;
+      top: 63.3%;
+      width: 68%;
+      height: 10.7%;
+      box-sizing: border-box;
+      border: 3px solid #0E5F82;
+      border-radius: 16px;
+      background: rgba(14, 95, 130, 0.07);
+    }
+
+    /* ===== caption column, anchored RIGHT (RTL) ===== */
+    .f06-sell-col {
+      position: absolute;
+      right: 96px; /* pad-x 5cqw */
+      top: 150px;
+      width: 560px;
+      text-align: right;
+    }
+    .f06-sell-accentline {
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: #0E5F82;
+      margin: 0 0 16px auto;
+    }
+    .f06-sell-eyebrow {
+      font-size: 1cqw;
+      font-weight: 600;
+      color: #0E5F82;
+      letter-spacing: 0; /* Arabic joining: no tracking */
+      line-height: 1.5;
+      margin: 0 0 10px;
+    }
+    /* two stacked h2s, crossfaded in place at the swap beat */
+    .f06-sell-h2wrap {
+      position: relative;
+      height: 132px;
+    }
+    .f06-sell-h2 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: 0;
+      font-size: 2.5cqw;
+      font-weight: 600;
+      color: #191510;
+      letter-spacing: 0; /* Arabic joining: no tracking */
+      line-height: 1.3;
+    }
+
+    /* ===== three-step journey, circles anchored RIGHT ===== */
+    .f06-sell-steps {
+      margin-top: 54px;
+      display: flex;
+      flex-direction: column;
+      gap: 46px;
+      align-items: flex-start; /* RTL: rows pack at the right edge */
+    }
+    .f06-sell-step {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .f06-sell-circle {
+      flex: 0 0 56px;
+      width: 56px;
+      height: 56px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1.5px solid rgba(14, 95, 130, 0.2);
+      background: rgba(14, 95, 130, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35cqw;
+      font-weight: 600;
+      color: #0E5F82;
+    }
+    .f06-sell-steplabel {
+      font-size: 1.45cqw;
+      font-weight: 500;
+      color: #4C463D;
+      line-height: 1.55;
+    }
+  </style>
+
+  <div id="root" data-composition-id="06-sell-account" data-width="1920" data-height="1080" dir="rtl" lang="ar" data-duration="8.6">
+    <!-- full-bleed ground on its own clip (never on #root) -->
+    <div class="clip f06-sell-clip f06-sell-ground" data-start="0" data-duration="8.6" data-track-index="0"></div>
+
+    <div class="clip f06-sell-clip" data-start="0" data-duration="8.6" data-track-index="1">
+      <!-- Scenes 1-4: ONE browser card holds BOTH real surfaces; the in-place
+           cross-dissolve at 3.85s is the signature move -->
+      <div class="f06-sell-card">
+        <div class="f06-sell-chrome">
+          <span class="f06-sell-dot"></span>
+          <span class="f06-sell-dot"></span>
+          <span class="f06-sell-dot"></span>
+          <div class="f06-sell-urlpill"></div>
+        </div>
+        <div class="f06-sell-viewport">
+          <div class="f06-sell-shotwrap">
+            <img class="f06-sell-shot f06-sell-shot-sell" src="capture/assets/sell.png" alt="" />
+            <img class="f06-sell-shot f06-sell-shot-account" src="assets/account.png" alt="" />
+            <!-- proof ring over the live مزايداتي row (مزاد مباشر · 170,000) -->
+            <div class="f06-sell-ring"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- caption column: eyebrow + crossfading h2 + the three-step journey -->
+      <div class="f06-sell-col">
+        <div class="f06-sell-accentline"></div>
+        <div class="f06-sell-eyebrow">لأصحاب الخيل</div>
+        <div class="f06-sell-h2wrap">
+          <h2 class="f06-sell-h2 f06-sell-h2a">اعرض حصانك للبيع</h2>
+          <h2 class="f06-sell-h2 f06-sell-h2b">وتابع كل شيء من حسابك</h2>
+        </div>
+        <div class="f06-sell-steps">
+          <div class="f06-sell-step">
+            <div class="f06-sell-circle"><span class="f06-sell-num">١</span></div>
+            <div class="f06-sell-steplabel">ارفع طلب البيع بالصور والسعر</div>
+          </div>
+          <div class="f06-sell-step">
+            <div class="f06-sell-circle"><span class="f06-sell-num">٢</span></div>
+            <div class="f06-sell-steplabel">الإدارة تعاين وتعتمد</div>
+          </div>
+          <div class="f06-sell-step">
+            <div class="f06-sell-circle"><span class="f06-sell-num">٣</span></div>
+            <div class="f06-sell-steplabel">يُعرض للبيع أو في المزاد</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var card = document.querySelector('.f06-sell-card');
+      var wrap = document.querySelector('.f06-sell-shotwrap');
+      var sell = document.querySelector('.f06-sell-shot-sell');
+      var account = document.querySelector('.f06-sell-shot-account');
+      var ring = document.querySelector('.f06-sell-ring');
+      var h2a = document.querySelector('.f06-sell-h2a');
+      var h2b = document.querySelector('.f06-sell-h2b');
+      var circles = document.querySelectorAll('.f06-sell-circle');
+      var numerals = document.querySelectorAll('.f06-sell-num');
+      var labels = document.querySelectorAll('.f06-sell-steplabel');
+
+      /* step-circle ladder from the design system: 1.0 → 0.85 → 0.7 */
+      var LADDER = [1, 0.85, 0.7];
+      var STEP_T = [1.55, 2.4, 3.25]; /* 0.85s cascade */
+
+      var tl = gsap.timeline({ paused: true });
+
+      /* ---- Scene 1 (0.0-1.5) the sell form seats LEFT, caption column
+              right: accent line draws on, eyebrow + h2 fade up, browser card
+              slides up + crossfades in. Hero visible by ~0.4s. ---- */
+      tl.fromTo('.f06-sell-accentline',
+        { scaleX: 0 },
+        { scaleX: 1, transformOrigin: 'right center', duration: 0.5, ease: 'power2.out' }, 0.02);
+      tl.fromTo('.f06-sell-eyebrow',
+        { y: 18, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.6, ease: 'power3.out' }, 0.18);
+      tl.fromTo(h2a,
+        { y: 22, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.8, ease: 'power3.out' }, 0.3);
+      tl.fromTo(card,
+        { y: 44, scale: 0.985, autoAlpha: 0 },
+        { y: 0, scale: 1, autoAlpha: 1, duration: 1.05, ease: 'power3.out' }, 0.06);
+
+      /* ---- macro camera: one slow push across the whole shot, riding the
+              inner wrapper only (never the timed clip). ---- */
+      tl.fromTo(wrap,
+        { scale: 1 },
+        { scale: 1.075, transformOrigin: '50% 55%', duration: 8, ease: 'none' }, 0);
+
+      /* ---- Scene 2 (1.5-3.8) three step-circles cascade on 0.85s stagger:
+              each pops as an outline, then fills teal as its label lands
+              (numeral flips cobalt → cream with the fill). ---- */
+      STEP_T.forEach(function (t, i) {
+        tl.fromTo(circles[i],
+          { scale: 0.5, autoAlpha: 0 },
+          { scale: 1, autoAlpha: LADDER[i], duration: 0.42, ease: 'back.out(1.7)' }, t);
+        tl.fromTo(labels[i],
+          { x: 34, autoAlpha: 0 },
+          { x: 0, autoAlpha: LADDER[i], duration: 0.6, ease: 'power2.out' }, t + 0.1);
+        tl.fromTo(circles[i],
+          { backgroundColor: 'rgba(14,95,130,0)', borderColor: 'rgba(14,95,130,0.2)' },
+          { backgroundColor: '#0E5F82', borderColor: '#0E5F82', duration: 0.5, ease: 'power2.inOut' }, t + 0.16);
+        tl.fromTo(numerals[i],
+          { color: '#0E5F82' },
+          { color: '#F6F3EC', duration: 0.5, ease: 'power2.inOut' }, t + 0.16);
+      });
+
+      /* ---- Scene 3 (3.8-5.6) THE SWAP: the card's screen cross-dissolves
+              in place to the account page — account fades in over the sell
+              form with a whisper of settle scale, sell releases underneath.
+              The h2 crossfades to the follow-up line in the same beat. ---- */
+      tl.fromTo(account,
+        { autoAlpha: 0, scale: 1.04 },
+        { autoAlpha: 1, scale: 1, transformOrigin: '50% 50%', duration: 0.75, ease: 'power2.inOut' }, 3.85);
+      tl.fromTo(sell,
+        { autoAlpha: 1 },
+        { autoAlpha: 0, duration: 0.65, ease: 'power2.inOut' }, 4.2);
+      tl.fromTo(h2a,
+        { y: 0, autoAlpha: 1 },
+        { y: -16, autoAlpha: 0, duration: 0.55, ease: 'power2.in', immediateRender: false }, 3.9);
+      tl.fromTo(h2b,
+        { y: 18, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power3.out' }, 4.0);
+
+      /* ---- the teal proof ring pops over the live مزايداتي row and pulses
+              exactly once — it really exists on the screen. ---- */
+      tl.fromTo(ring,
+        { autoAlpha: 0, scale: 1.07 },
+        { autoAlpha: 1, scale: 1, transformOrigin: '50% 50%', duration: 0.5, ease: 'power3.out' }, 4.78);
+      tl.fromTo(ring,
+        { scale: 1 },
+        { scale: 1.035, duration: 0.3, ease: 'sine.inOut', immediateRender: false }, 5.35);
+      tl.fromTo(ring,
+        { scale: 1.035 },
+        { scale: 1, duration: 0.36, ease: 'sine.out', immediateRender: false }, 5.65);
+
+      /* ---- Scene 4 (5.6-8.0) hold — the account dashboard reads: طلبات
+              قيد المراجعة، مزايدات مباشرة، صفقة مؤكدة. No exit: the slow push
+              keeps breathing under the still frame until unmount. ---- */
+
+      window.__timelines['06-sell-account'] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,249 @@
+<template>
+  <style>
+    /* ===== Alexandria — local files only (assets/fonts) ===== */
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+      unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+      unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* ===== frame root (styled by #root only) ===== */
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      container-type: size;
+      font-family: 'Alexandria', sans-serif;
+      color: #191510;
+    }
+
+    /* ===== clips ===== */
+    .f05-horse-clip {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .f05-horse-ground {
+      background: #F6F3EC;
+    }
+
+    /* ===== header band, anchored RIGHT above the card (RTL) ===== */
+    .f05-horse-header {
+      position: absolute;
+      right: 96px; /* pad-x 5cqw */
+      top: 48px;
+      text-align: right;
+    }
+    .f05-horse-accentline {
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: #0E5F82;
+      margin: 0 0 16px auto;
+    }
+    .f05-horse-eyebrow {
+      font-size: 0.95cqw;
+      font-weight: 600;
+      color: #0E5F82;
+      letter-spacing: 0; /* Arabic joining: no tracking */
+      line-height: 1.5;
+      margin: 0 0 10px;
+    }
+    .f05-horse-h2 {
+      font-size: 2.6cqw;
+      font-weight: 600;
+      color: #191510;
+      letter-spacing: 0; /* Arabic joining: no tracking */
+      line-height: 1.3;
+      margin: 0 0 12px;
+    }
+    /* the single tinted line — phrases muted, separators carry the one cobalt accent */
+    .f05-horse-line {
+      display: flex;
+      justify-content: flex-start; /* RTL: packs at the right edge */
+      align-items: center;
+      gap: 14px;
+      font-size: 1.4cqw;
+      font-weight: 500;
+      color: #4C463D;
+      line-height: 1.4;
+    }
+    .f05-horse-linesep {
+      color: #0E5F82;
+      font-weight: 600;
+    }
+
+    /* ===== browser card, CENTERED ~66% width (x 326-1594, y 236-864 — above the
+       83% keep-out at 896). The card never drifts: the push-in rides the
+       inner shot wrapper only. ===== */
+    .f05-horse-card {
+      position: absolute;
+      left: 326px;
+      top: 236px;
+      width: 1268px;
+      height: 628px;
+      box-sizing: border-box;
+      background: #F6F3EC;
+      border: 1.5px solid rgba(14, 95, 130, 0.2);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .f05-horse-chrome {
+      flex: 0 0 auto;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 20px;
+      box-sizing: border-box;
+      background: rgba(14, 95, 130, 0.04);
+      border-bottom: 1.5px solid rgba(14, 95, 130, 0.2);
+    }
+    .f05-horse-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(14, 95, 130, 0.2);
+    }
+    .f05-horse-urlpill {
+      width: 320px;
+      height: 28px;
+      border-radius: 100px;
+      background: rgba(14, 95, 130, 0.05);
+      border: 1px solid rgba(14, 95, 130, 0.14);
+      margin-inline-start: 14px;
+    }
+    .f05-horse-viewport {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      background: rgba(14, 95, 130, 0.04);
+    }
+    /* micro-drift wrapper — the ONLY scaled element over the screenshot */
+    .f05-horse-shotwrap {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+    .f05-horse-shot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* shows the page from just under the announcement bar through the
+         "عرض هذا الحصان" heading — nav, hero name, photo, specs all in frame */
+      object-position: 50% 20%;
+      display: block;
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-horse" data-width="1920" data-height="1080" dir="rtl" lang="ar" data-duration="5.5">
+    <!-- full-bleed ground on its own clip (never on #root) -->
+    <div class="clip f05-horse-clip f05-horse-ground" data-start="0" data-duration="5.5" data-track-index="0"></div>
+
+    <div class="clip f05-horse-clip" data-start="0" data-duration="5.5" data-track-index="1">
+      <!-- Scene 1: eyebrow + h2 seated above, right-aligned; the one tinted
+           line joins them in Scene 2 -->
+      <div class="f05-horse-header">
+        <div class="f05-horse-accentline"></div>
+        <div class="f05-horse-eyebrow">شفافية كاملة</div>
+        <h2 class="f05-horse-h2">بطاقة حصان بكل التفاصيل</h2>
+        <div class="f05-horse-line">
+          <span>صور حقيقية</span>
+          <span class="f05-horse-linesep">·</span>
+          <span>نسب واضحة</span>
+          <span class="f05-horse-linesep">·</span>
+          <span>سعر معلن</span>
+        </div>
+      </div>
+
+      <!-- Scenes 1-3: the browser card with the real horse detail page holds
+           nearly still, centered -->
+      <div class="f05-horse-card">
+        <div class="f05-horse-chrome">
+          <span class="f05-horse-dot"></span>
+          <span class="f05-horse-dot"></span>
+          <span class="f05-horse-dot"></span>
+          <div class="f05-horse-urlpill"></div>
+        </div>
+        <div class="f05-horse-viewport">
+          <div class="f05-horse-shotwrap">
+            <img class="f05-horse-shot" src="assets/horse-detail.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var card = document.querySelector('.f05-horse-card');
+      var shot = document.querySelector('.f05-horse-shotwrap');
+
+      var tl = gsap.timeline({ paused: true });
+
+      /* ---- Scene 1 (0.0-1.8) the ONE restrained move: accent line draws on,
+              eyebrow + h2 fade up right, and the browser card slides up +
+              crossfades into center. Hero visible by ~0.4s. ---- */
+      tl.fromTo('.f05-horse-accentline',
+        { scaleX: 0 },
+        { scaleX: 1, transformOrigin: 'right center', duration: 0.5, ease: 'power2.out' }, 0.02);
+      tl.fromTo('.f05-horse-eyebrow',
+        { y: 18, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.6, ease: 'power3.out' }, 0.16);
+      tl.fromTo('.f05-horse-h2',
+        { y: 22, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.8, ease: 'power3.out' }, 0.3);
+      tl.fromTo(card,
+        { y: 44, scale: 0.985, autoAlpha: 0 },
+        { y: 0, scale: 1, autoAlpha: 1, duration: 1.05, ease: 'power3.out' }, 0.06);
+
+      /* ---- Scene 2 (1.8-3.4) the single tinted line fades up on the right;
+              camera micro-drifts toward the photo/specs band — the push rides
+              the inner shot wrapper only (never the timed clip). ---- */
+      tl.fromTo('.f05-horse-line',
+        { y: 16, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.85, ease: 'power2.out' }, 1.85);
+      tl.fromTo(shot,
+        { scale: 1 },
+        { scale: 1.055, transformOrigin: '50% 58%', duration: 1.55, ease: 'sine.inOut' }, 1.85);
+
+      /* ---- Scene 3 (3.4-5.0) deliberate still hold — the allocated stillness
+              beat of titlecard-reveal: no second development phase, no exit. ---- */
+
+      window.__timelines['05-horse'] = tl;
+    })();
+  </script>
+</template>

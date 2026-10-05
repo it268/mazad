@@ -1,0 +1,318 @@
+<template>
+  <style>
+    /* Alexandria 600 — Arabic + Latin subsets (local files only) */
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+      unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* Alexandria 700 — Arabic + Latin subsets (local files only) */
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+      unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* Root — styled by #root only (never a class on the composition root) */
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      container-type: size;
+      font-family: 'Alexandria', sans-serif;
+      color: #191510;
+    }
+
+    .clip {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    /* Scene stage + camera wrapper (plain layout divs, transform-free in CSS) */
+    #f07-closing-stage {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    #f07-closing-cam {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+
+    /* Track 0 — cream ground + faint pattern (strokes are 8% alpha; layer 0.7 -> ~6% visible) */
+    #f07-closing-cream {
+      position: absolute;
+      inset: 0;
+      background: #F6F3EC;
+    }
+    #f07-closing-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: url("assets/pattern.svg");
+      background-repeat: repeat;
+      background-size: 240px 240px;
+      opacity: 0.7;
+    }
+
+    /* Track 1 — closing atmosphere: soft glow + concentric rings centered on
+       (960, 440). Rings are sized/positioned explicitly (no CSS transform, so
+       GSAP scale is safe). Outer ring bottom = 880 — inside the 896 keep-out. */
+    #f07-closing-glow {
+      position: absolute;
+      left: 580px;
+      top: 60px;
+      width: 760px;
+      height: 760px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14, 95, 130, 0.16) 0%, rgba(14, 95, 130, 0.07) 45%, rgba(14, 95, 130, 0) 70%);
+      pointer-events: none;
+    }
+    #f07-closing-ring-a,
+    #f07-closing-ring-b,
+    #f07-closing-ring-c {
+      position: absolute;
+      box-sizing: border-box;
+      border: 1.5px solid rgba(14, 95, 130, 0.22);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #f07-closing-ring-a { left: 720px; top: 200px; width: 480px; height: 480px; }
+    #f07-closing-ring-b { left: 620px; top: 100px; width: 680px; height: 680px; border-color: rgba(14, 95, 130, 0.16); }
+    #f07-closing-ring-c { left: 520px; top: 0; width: 880px; height: 880px; border-color: rgba(14, 95, 130, 0.11); }
+
+    /* Track 2 — the end card. Content spans y 140-772, well above the 896
+       keep-out; cluster centers at ~y 456 (~0.42 x height). */
+    #f07-closing-lockup {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 140px;
+      height: 410px;
+      transform-origin: 50% 45%;
+      will-change: transform;
+    }
+    #f07-closing-mark {
+      position: absolute;
+      left: calc(50% - 165px);
+      top: 0;
+      width: 330px;
+      height: auto;
+    }
+    #f07-closing-wordmark {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 284px;
+      margin: 0;
+      font-family: 'Alexandria', sans-serif;
+      font-weight: 700;
+      font-size: 4.2cqw; /* h1 ramp, ~80.6px @1920 */
+      line-height: 1.15;
+      letter-spacing: 0; /* Arabic joining: no tracking */
+      color: #191510;
+      text-align: center;
+    }
+    #f07-closing-rule {
+      position: absolute;
+      left: calc(50% - 30px);
+      top: 403px;
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: #0E5F82;
+    }
+
+    #f07-closing-h2 {
+      position: absolute;
+      left: 96px; /* pad-x 5cqw */
+      right: 96px;
+      top: 585px;
+      margin: 0;
+      font-family: 'Alexandria', sans-serif;
+      font-weight: 600;
+      font-size: 2.55cqw; /* ~49px @1920 */
+      line-height: 1.35;
+      letter-spacing: 0; /* Arabic joining: no tracking */
+      color: #191510;
+      text-align: center;
+    }
+
+    /* the ONE solid element — cta-button: teal fill, cream text, 100px pill */
+    #f07-closing-ctarow {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 700px;
+      display: flex;
+      justify-content: center;
+    }
+    #f07-closing-pill {
+      box-sizing: border-box;
+      height: 72px;
+      padding: 0 46px;
+      border-radius: 100px;
+      background: #0E5F82;
+      color: #F6F3EC;
+      display: flex;
+      align-items: center;
+      font-family: 'Alexandria', sans-serif;
+      font-weight: 600;
+      font-size: 1.4cqw; /* ~27px @1920 */
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      will-change: transform;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="07-closing"
+    data-start="0"
+    data-duration="5"
+    data-width="1920"
+    data-height="1080"
+    dir="rtl"
+    lang="ar"
+  >
+    <div id="f07-closing-stage">
+      <div id="f07-closing-cam">
+        <!-- Track 0 — ground -->
+        <section class="clip" data-start="0" data-duration="5" data-track-index="0">
+          <div id="f07-closing-cream"></div>
+          <div id="f07-closing-pattern"></div>
+        </section>
+
+        <!-- Track 1 — concentric closing rings behind the lockup (CSS-only) -->
+        <section class="clip" data-start="0" data-duration="5" data-track-index="1">
+          <div id="f07-closing-glow"></div>
+          <div id="f07-closing-ring-a"></div>
+          <div id="f07-closing-ring-b"></div>
+          <div id="f07-closing-ring-c"></div>
+        </section>
+
+        <!-- Track 2 — lockup returns whole, ask lands, CTA pops, hold -->
+        <section class="clip" data-start="0" data-duration="5" data-track-index="2">
+          <div id="f07-closing-lockup">
+            <img id="f07-closing-mark" src="capture/assets/logo.svg" alt="مزاد الفروسية" />
+            <h1 id="f07-closing-wordmark">مزاد الفروسية</h1>
+            <div id="f07-closing-rule"></div>
+          </div>
+          <h2 id="f07-closing-h2">سجّل اليوم — وابدأ رحلتك مع خيل العرب</h2>
+          <div id="f07-closing-ctarow">
+            <div id="f07-closing-pill" dir="ltr">mazad.alfrusiyaar.com</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" id="f07-closing-gsap"></script>
+  <script>
+    (function () {
+      var ID = "07-closing";
+
+      function build() {
+        if (!window.gsap) return false;
+        window.__timelines = window.__timelines || {};
+        if (window.__timelines[ID]) return true; // idempotent on double mount
+
+        var el = function (id) { return document.getElementById(id); };
+        var cam = el("f07-closing-cam");
+        var glow = el("f07-closing-glow");
+        var rings = [
+          el("f07-closing-ring-a"),
+          el("f07-closing-ring-b"),
+          el("f07-closing-ring-c")
+        ];
+        var lockup = el("f07-closing-lockup");
+        var rule = el("f07-closing-rule");
+        var h2 = el("f07-closing-h2");
+        var pill = el("f07-closing-pill");
+
+        var tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
+
+        /* ---- macro settle — the whole stage breathes from 1.035 down to 1
+                across the shot (settled-reveal allowance: very slow global
+                zoom-out, no pan). Ends by 4.2 so the final hold is still. ---- */
+        tl.fromTo(cam, { scale: 1.035 }, { scale: 1, duration: 4.2, ease: "power2.out" }, 0);
+
+        /* ---- Scene 1 (0.0-1.4) — atmosphere radiates, lockup settles as ONE
+                unit (already-assembled settle variant: it arrives whole) ---- */
+
+        // glow ignites behind the lockup
+        tl.fromTo(glow,
+          { opacity: 0, scale: 0.72 },
+          { opacity: 1, scale: 1, duration: 1.1, ease: "power2.out" }, 0.05);
+
+        // rings pulse outward from the shared center, inner -> outer
+        tl.fromTo(rings,
+          { scale: 0.66, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.05, ease: "power2.out", stagger: 0.22 }, 0.12);
+
+        // the lockup (mark + wordmark) settles as one unit: scale 1.04 -> 1.0
+        tl.fromTo(lockup,
+          { scale: 1.04, y: 12, autoAlpha: 0 },
+          { scale: 1, y: 0, autoAlpha: 1, duration: 1.0, ease: "power3.out" }, 0.04);
+
+        // accent-line draws on as the settle lands (end of Scene 1)
+        tl.fromTo(rule,
+          { scaleX: 0 },
+          { scaleX: 1, duration: 0.5, ease: "power2.out" }, 1.02);
+
+        // rings keep a near-imperceptible outward drift through the mid-shot
+        // (one long linear micro-tween; all motion stops by 4.0)
+        tl.fromTo(rings,
+          { scale: 1 },
+          { scale: 1.045, duration: 2.4, ease: "none", stagger: 0.15, immediateRender: false }, 1.3);
+
+        /* ---- Scene 2 (1.4-3.0) — the ask fades up ---- */
+        tl.fromTo(h2,
+          { y: 26, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.85, ease: "power3.out" }, 1.55);
+
+        /* ---- Scene 3 (3.0-4.2) — the one solid element spring-pops ---- */
+        tl.fromTo(pill,
+          { scale: 0.7, y: 12, autoAlpha: 0 },
+          { scale: 1, y: 0, autoAlpha: 1, duration: 0.62, ease: "back.out(1.7)" }, 3.05);
+
+        /* ---- Scene 4 (4.2-5.0) — hold the end card, still. No exit, no
+                fade-out: the frame ends on the landed lockup. ---- */
+
+        window.__timelines[ID] = tl;
+        return true;
+      }
+
+      if (!build()) {
+        // gsap CDN still loading (async insertion edge case) — build once it lands
+        var s = document.getElementById("f07-closing-gsap");
+        if (s) s.addEventListener("load", build);
+      }
+    })();
+  </script>
+</template>

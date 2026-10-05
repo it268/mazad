@@ -1,0 +1,270 @@
+<template>
+  <style>
+    /* ===== Alexandria — local files only (assets/fonts) ===== */
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+      unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+      unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+    }
+    @font-face{
+      font-family: 'Alexandria';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* ===== frame root (styled by #root only) ===== */
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      container-type: size;
+      font-family: 'Alexandria', sans-serif;
+      color: #191510;
+    }
+
+    /* ===== clips ===== */
+    .f04-horses-clip {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .f04-horses-ground {
+      background: #F6F3EC;
+    }
+
+    /* ===== browser card, seats LEFT ~58% (x 84-1204, y 148-856 — above the
+       83% keep-out at 896). The card never scales: the push-in rides the
+       inner shot wrapper only. ===== */
+    .f04-horses-card {
+      position: absolute;
+      left: 84px;
+      top: 148px;
+      width: 1120px;
+      height: 708px;
+      box-sizing: border-box;
+      background: #F6F3EC;
+      border: 1.5px solid rgba(14, 95, 130, 0.2);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .f04-horses-chrome {
+      flex: 0 0 auto;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 20px;
+      box-sizing: border-box;
+      background: rgba(14, 95, 130, 0.04);
+      border-bottom: 1.5px solid rgba(14, 95, 130, 0.2);
+    }
+    .f04-horses-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(14, 95, 130, 0.2);
+    }
+    .f04-horses-urlpill {
+      width: 300px;
+      height: 28px;
+      border-radius: 100px;
+      background: rgba(14, 95, 130, 0.05);
+      border: 1px solid rgba(14, 95, 130, 0.14);
+      margin-inline-start: 14px;
+    }
+    .f04-horses-viewport {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+    }
+    /* push-in wrapper — the ONLY scaled element over the screenshot */
+    .f04-horses-shotwrap {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+    }
+    .f04-horses-shot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* ===== caption column, anchored RIGHT (RTL) ===== */
+    .f04-horses-column {
+      position: absolute;
+      right: 84px;
+      top: 252px;
+      width: 560px;
+      text-align: right;
+    }
+    .f04-horses-accentline {
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: #0E5F82;
+      margin: 0 0 18px auto;
+    }
+    .f04-horses-eyebrow {
+      font-size: 0.95cqw;
+      font-weight: 600;
+      color: #0E5F82;
+      letter-spacing: 0; /* Arabic joining: no tracking */
+      line-height: 1.5;
+      margin: 0 0 12px;
+    }
+    .f04-horses-h2 {
+      font-size: 2.6cqw;
+      font-weight: 600;
+      color: #191510;
+      letter-spacing: 0; /* Arabic joining: no tracking */
+      line-height: 1.3;
+      margin: 0 0 30px;
+    }
+    .f04-horses-chips {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* RTL: anchors the pill stack right */
+      gap: 14px;
+    }
+    .f04-horses-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 22px;
+      background: rgba(14, 95, 130, 0.08);
+      border-radius: 100px;
+      font-size: 1.05cqw;
+      font-weight: 500;
+      color: #0E5F82;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    .f04-horses-chipdot {
+      flex: 0 0 auto;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #0E5F82;
+    }
+  </style>
+
+  <div id="root" data-composition-id="04-horses" data-width="1920" data-height="1080" dir="rtl" lang="ar" data-duration="5.6">
+    <!-- full-bleed ground on its own clip (never on #root) -->
+    <div class="clip f04-horses-clip f04-horses-ground" data-start="0" data-duration="5.6" data-track-index="0"></div>
+
+    <div class="clip f04-horses-clip" data-start="0" data-duration="5.6" data-track-index="1">
+      <!-- Scene 1: browser card with the real /horses grid, seats LEFT -->
+      <div class="f04-horses-card">
+        <div class="f04-horses-chrome">
+          <span class="f04-horses-dot"></span>
+          <span class="f04-horses-dot"></span>
+          <span class="f04-horses-dot"></span>
+          <div class="f04-horses-urlpill"></div>
+        </div>
+        <div class="f04-horses-viewport">
+          <div class="f04-horses-shotwrap">
+            <img class="f04-horses-shot" src="assets/horses.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenes 1-3: caption column RIGHT — eyebrow + h2, then the chip cascade -->
+      <div class="f04-horses-column">
+        <div class="f04-horses-accentline"></div>
+        <div class="f04-horses-eyebrow">السوق</div>
+        <h2 class="f04-horses-h2">خيل معروضة للبيع</h2>
+        <div class="f04-horses-chips">
+          <div class="f04-horses-chip"><span class="f04-horses-chipdot"></span>صور حقيقية</div>
+          <div class="f04-horses-chip"><span class="f04-horses-chipdot"></span>أسعار معلنة</div>
+          <div class="f04-horses-chip"><span class="f04-horses-chipdot"></span>تفاصيل كاملة</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var card = document.querySelector('.f04-horses-card');
+      var shot = document.querySelector('.f04-horses-shotwrap');
+      var chips = gsap.utils.toArray('.f04-horses-chip');
+
+      var tl = gsap.timeline({ paused: true });
+
+      /* ---- Scene 1 (0.0-1.4) the browser card seats LEFT; eyebrow + h2
+              reveal with it on the right column. Hero visible by ~0.4s. ---- */
+      tl.fromTo(card,
+        { y: 42, scale: 0.98, autoAlpha: 0, transformOrigin: '50% 60%' },
+        { y: 0, scale: 1, autoAlpha: 1, duration: 0.9, ease: 'power3.out' }, 0);
+      tl.fromTo('.f04-horses-eyebrow',
+        { y: 22, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.6, ease: 'power3.out' }, 0.4);
+      tl.fromTo('.f04-horses-h2',
+        { y: 26, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.75, ease: 'power3.out' }, 0.55);
+
+      /* ---- the slow push toward the photo cards: starts with Scene 1 and
+              rides the inner shot wrapper (never the timed clip) to the end ---- */
+      tl.fromTo(shot,
+        { scale: 1 },
+        { scale: 1.09, transformOrigin: '50% 74%', duration: 4.6, ease: 'power1.inOut' }, 0.4);
+
+      /* ---- Scene 2 (1.4-3.4) the chip cascade: three tinted pills
+              spring-pop staggered ~0.35s apart under the h2 ---- */
+      chips.forEach(function (chip, i) {
+        tl.fromTo(chip,
+          { y: 26, scale: 0.55, autoAlpha: 0 },
+          { y: 0, scale: 1, autoAlpha: 1, duration: 0.6, ease: 'back.out(1.7)', immediateRender: true },
+          1.45 + i * 0.35);
+      });
+
+      /* ---- Scene 3 (3.4-5.0) settle: card micro-settles upward while the
+              push keeps drifting; chips take one gentle breathing settle.
+              All fromTo with explicit from-values — seek-safe, no exit. ---- */
+      tl.fromTo(card,
+        { y: 0 },
+        { y: -6, duration: 1.35, ease: 'power1.inOut', immediateRender: false }, 3.5);
+      chips.forEach(function (chip, i) {
+        tl.fromTo(chip,
+          { y: 0 },
+          { y: -3, duration: 0.6, ease: 'sine.inOut', immediateRender: false },
+          3.55 + i * 0.08);
+        tl.fromTo(chip,
+          { y: -3 },
+          { y: 0, duration: 0.6, ease: 'sine.inOut', immediateRender: false },
+          4.2 + i * 0.08);
+      });
+
+      window.__timelines['04-horses'] = tl;
+    })();
+  </script>
+</template>
