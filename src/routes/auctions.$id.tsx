@@ -194,7 +194,11 @@ function AuctionRoom() {
           >
             <div className="flex items-center justify-between gap-3">
               <span className="text-sm font-bold text-white/75">
-                {l.current_top_bid ? "أعلى مزايدة حالياً" : "بانتظار أول مزايدة"}
+                {l.current_top_bid
+                  ? isEnded
+                    ? "أعلى مزايدة عند الانتهاء"
+                    : "أعلى مزايدة حالياً"
+                  : "بانتظار أول مزايدة"}
               </span>
               {isLive && l.ends_at && (
                 <span className="badge bg-white/15 text-white">
@@ -235,8 +239,10 @@ function AuctionRoom() {
                 {iAmWinner
                   ? "مبروك! فزت بأعلى مزايدة — سيتواصل معك قسم الصفقات لإتمام البيع."
                   : topBidder
-                    ? `انتهى المزاد — الفائز: ${isAdmin ? topBidder.name || topBidder.phone : maskName(topBidder.name)}`
-                    : "انتهى المزاد دون مزايدات."}
+                    ? `انتهى المزاد — الفائز: ${isAdmin || iAmWinner ? topBidder.name || topBidder.phone : maskName(topBidder.name)}`
+                    : top > 0
+                      ? "انتهى المزاد — سيتواصل قسم الصفقات مع الفائز."
+                      : "انتهى المزاد دون مزايدات."}
               </p>
             )}
           </div>

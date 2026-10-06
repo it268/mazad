@@ -17,7 +17,7 @@ import {
   horseStatusLabels,
   horseStatusColors,
 } from "#/lib/constants";
-import { Badge, ErrorText, Loading, PageHero } from "#/components/ui";
+import { Badge, ErrorText, PageHero } from "#/components/ui";
 import { Countdown } from "#/components/Countdown";
 
 export const Route = createFileRoute("/horses/$id")({

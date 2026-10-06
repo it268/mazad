@@ -7,6 +7,7 @@ import {
   dealTypeLabels,
   dealStatusLabels,
   dealStatusColors,
+  listingStatusLabels,
 } from "#/lib/constants";
 import { Badge, ErrorText, Loading } from "#/components/ui";
 
