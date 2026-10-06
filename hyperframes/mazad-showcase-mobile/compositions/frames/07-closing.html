@@ -1,0 +1,205 @@
+<template>
+<style>
+/* ---- Alexandria (local files only — Arabic range + Latin range incl. U+2014), weights used here: 600/700 ---- */
+@font-face{
+  font-family:'Alexandria';
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family:'Alexandria';
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face{
+  font-family:'Alexandria';
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeaijdA5E64BdCIg.woff2") format('woff2');
+  unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42-1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+@font-face{
+  font-family:'Alexandria';
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url("assets/fonts/captured-UMBXrPdDqW66y0Y2usFeai3dA5E64Bc.woff2") format('woff2');
+  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- frame root (styled via #root only; class prefix fc07- is frame-id-derived) ---- */
+#root {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  container-type: size;
+  font-family: 'Alexandria', sans-serif;
+  color: #191510;
+}
+
+.fc07-clip { position: absolute; inset: 0; }
+
+/* track 0 — cream ground + faint pattern (pattern.svg = background, faint ~6%) */
+.fc07-bg-cream { position: absolute; inset: 0; background: #F6F3EC; }
+.fc07-bg-pattern {
+  position: absolute; inset: -48px;
+  background-image: url("assets/pattern.svg");
+  background-repeat: repeat;
+  background-size: 240px 240px;
+  opacity: 0.65;
+  will-change: transform;
+}
+
+/* track 1 — concentric teal rings behind the lockup (CSS-only closing atmosphere).
+   Ring center = lockup center at 38% height (730px); the whole group drifts slowly outward. */
+.fc07-rings {
+  position: absolute; inset: 0;
+  transform-origin: 540px 730px;
+  will-change: transform;
+}
+.fc07-ring {
+  position: absolute; left: 50%; top: 730px;
+  border: 2px solid #0E5F82;
+  border-radius: 50%;
+}
+.fc07-r1 { width: 640px;  height: 640px;  margin: -320px 0 0 -320px; border-color: rgba(14, 95, 130, 0.15); }
+.fc07-r2 { width: 860px;  height: 860px;  margin: -430px 0 0 -430px; border-color: rgba(14, 95, 130, 0.11); }
+.fc07-r3 { width: 1100px; height: 1100px; margin: -550px 0 0 -550px; border-color: rgba(14, 95, 130, 0.08); }
+.fc07-r4 { width: 1360px; height: 1360px; margin: -680px 0 0 -680px; border-color: rgba(14, 95, 130, 0.055); }
+
+/* track 2 — the end card. Mark (assets/logo.svg = mark + wordmark lockup) centered at 38% height. */
+.fc07-mark {
+  position: absolute; left: 50%; top: 730px;
+  width: 416px; height: 320px;   /* logo viewBox 520x400 aspect */
+  margin: -160px 0 0 -208px;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.fc07-mark img { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* text stack beneath the mark — accent rule, ask, domain pill (all above the 83% cutoff) */
+.fc07-stack {
+  position: absolute; left: 0; right: 0; top: 944px;
+  text-align: center;
+}
+.fc07-accentline {
+  width: 60px; height: 4px;      /* frame.md accent-line token, verbatim */
+  margin: 0 auto;
+  background: #0E5F82;
+  border-radius: 2px;
+  will-change: transform, opacity;
+}
+.fc07-ask {
+  margin: 44px auto 0;
+  max-width: 860px;
+  font-weight: 700;
+  font-size: 6.6cqw;             /* ~71px */
+  line-height: 1.6;
+  letter-spacing: normal;        /* Arabic is cursive — never track it */
+  color: #191510;
+  will-change: transform, opacity;
+}
+.fc07-pillwrap { margin-top: 58px; }
+.fc07-pill {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 3cqw;               /* ~32px */
+  line-height: 1.25;
+  letter-spacing: 0.03em;        /* Latin domain only */
+  color: #F6F3EC;
+  background: #0E5F82;           /* the one solid teal CTA (frame.md cta-button) */
+  border-radius: 100px;          /* pill radius token */
+  padding: 24px 52px;
+  will-change: transform, opacity;
+}
+</style>
+
+<div id="root" data-composition-id="07-closing" data-width="1080" data-height="1920" data-duration="4.5" dir="rtl" lang="ar">
+  <!-- track 0: full-duration ground -->
+  <div class="clip fc07-clip" data-start="0" data-duration="4.5" data-track-index="0">
+    <div class="fc07-bg-cream"></div>
+    <div class="fc07-bg-pattern"></div>
+  </div>
+
+  <!-- track 1: faint concentric teal rings behind the lockup -->
+  <div class="clip fc07-clip" data-start="0" data-duration="4.5" data-track-index="1">
+    <div class="fc07-rings">
+      <div class="fc07-ring fc07-r1"></div>
+      <div class="fc07-ring fc07-r2"></div>
+      <div class="fc07-ring fc07-r3"></div>
+      <div class="fc07-ring fc07-r4"></div>
+    </div>
+  </div>
+
+  <!-- track 2: the end card — lockup → ask → pill -->
+  <div class="clip fc07-clip" data-start="0" data-duration="4.5" data-track-index="2">
+    <div class="fc07-mark">
+      <img src="assets/logo.svg" alt="" width="416" height="320"/>
+    </div>
+    <div class="fc07-stack">
+      <div class="fc07-accentline"></div>
+      <h1 class="fc07-ask">سجّل اليوم — وابدأ رحلتك مع خيل العرب</h1>
+      <div class="fc07-pillwrap"><span class="fc07-pill" dir="ltr">mazad.alfrusiyaar.com</span></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+(function () {
+  var root = document.querySelector('[data-composition-id="07-closing"]');
+  if (!root || typeof gsap === 'undefined') { return; }
+  var DUR = 4.5;
+
+  var mark = root.querySelector('.fc07-mark');
+  var accent = root.querySelector('.fc07-accentline');
+  var ask = root.querySelector('.fc07-ask');
+  var pill = root.querySelector('.fc07-pill');
+  var rings = root.querySelector('.fc07-rings');
+  var pattern = root.querySelector('.fc07-bg-pattern');
+
+  var tl = gsap.timeline({ paused: true });
+
+  /* --- Scene 1 (0.0-1.4s): already-assembled lockup settles as one unit
+         (logo-assemble-lockup, settle variant — on stage from frame one) --- */
+  tl.fromTo(mark,
+    { scale: 1.04 },
+    { scale: 1, duration: 1.4, ease: 'power3.out' }, 0);
+
+  /* --- Scene 2 (1.4-2.8s): accent rule, then the ask fades up beneath the lockup --- */
+  tl.fromTo(accent,
+    { y: 22, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, 1.45);
+  tl.fromTo(ask,
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }, 1.6);
+
+  /* --- Scene 3 (2.8-3.8s): the one solid teal CTA pill spring-pops (spring-pop-entrance) --- */
+  tl.fromTo(pill,
+    { scale: 0.55, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.7, ease: 'back.out(1.8)' }, 2.85);
+
+  /* --- Scene 4 (3.8-4.5s): end card holds still — final frame, settle/hold only, no exit --- */
+
+  /* full-duration atmosphere beneath: rings drift slowly outward (settled-reveal satellite
+     drift); pattern macro-drifts under it. Deterministic, transform-only, seek-safe. */
+  tl.fromTo(rings,
+    { scale: 0.965 },
+    { scale: 1.04, duration: DUR, ease: 'sine.out' }, 0);
+  tl.fromTo(pattern,
+    { scale: 1 },
+    { scale: 1.045, duration: DUR, ease: 'none' }, 0);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines['07-closing'] = tl;
+})();
+</script>
+</template>
